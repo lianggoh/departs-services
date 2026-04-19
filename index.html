@@ -6,18 +6,19 @@
 <title>DeParts Systems — Services</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;padding:32px 24px 120px}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;padding:32px 24px 80px}
   .wrap{max-width:960px;margin:0 auto}
   .sl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:14px}
   .divider{border:none;border-top:1px solid #f0f0f0;margin:28px 0}
  
-  /* Steps — 4 col desktop */
+  /* Steps — 4 col desktop, 1 col mobile */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
   .step{background:#f9f9f9;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
   .step-num{width:24px;height:24px;border-radius:50%;background:#fff;border:1px solid #e0e0e0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#111;flex-shrink:0}
   .step-title{font-size:13px;font-weight:600;color:#111}
   .step-desc{font-size:12px;color:#555;line-height:1.6;flex:1}
-  .pill{display:inline-block;margin-top:4px;font-size:10px;padding:2px 8px;border-radius:99px;font-weight:500}
+  /* Pills fit content only */
+  .pill{display:inline-block;margin-top:4px;font-size:10px;padding:2px 8px;border-radius:99px;font-weight:500;width:fit-content;max-width:100%}
   .pill-green{background:#e8f5e9;color:#2e7d32}
   .pill-amber{background:#fff8e1;color:#f57c00}
  
@@ -30,6 +31,7 @@
   .tier-name{font-size:13px;font-weight:600;color:#111;margin-bottom:4px}
   .tier-price-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
   .tier-price{font-size:15px;font-weight:600;color:#111}
+  /* Badge inline next to price */
   .tier-badge{font-size:10px;padding:2px 8px;border-radius:99px;background:#e8f0fe;color:#1a73e8;font-weight:500}
   .tier-tagline{font-size:11px;color:#888;margin-bottom:10px;font-style:italic}
   .tier-items{display:flex;flex-direction:column;gap:4px;flex:1}
@@ -66,7 +68,7 @@
   .cs-val{font-size:13px;color:#444;line-height:1.5}
   .cs-result{font-size:13px;font-weight:600;color:#2e7d32;line-height:1.5}
  
-  /* Comparison — 2 col */
+  /* Comparison */
   .comp-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
   .comp-head{font-size:11px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;text-align:center}
   .comp-head.win{color:#1a73e8}
@@ -77,28 +79,29 @@
   .comp-val{font-size:13px;color:#888}
   .comp-val.win{color:#111;font-weight:600}
  
-  /* Pricing — 3 col desktop */
+  /* Pricing — 3 col */
   .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
   .price-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff;display:flex;flex-direction:column}
   .price-card.feat{border:2px solid #1a73e8}
   .price-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
   .price-name{font-size:14px;font-weight:600;color:#111}
   .price-amt{font-size:20px;font-weight:600;color:#111}
-  .price-bdg{font-size:10px;padding:2px 8px;border-radius:99px;background:#e8f0fe;color:#1a73e8;display:inline-block;margin-bottom:6px;font-weight:500}
+  /* Badge at bottom of card for consistent spacing */
+  .price-bdg{font-size:10px;padding:2px 8px;border-radius:99px;background:#e8f0fe;color:#1a73e8;display:inline-block;margin-bottom:8px;font-weight:500;width:fit-content}
   .price-note{font-size:12px;color:#888;margin-bottom:8px}
   .price-items{display:flex;flex-direction:column;gap:4px;flex:1}
   .price-item{font-size:12px;color:#444;display:flex;gap:6px}
   .price-item::before{content:'—';color:#bbb;flex-shrink:0}
   .payment-note{font-size:12px;color:#888;text-align:center;margin-bottom:0}
  
-  /* Sticky CTA bottom bar */
-  .cta-sticky{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #f0f0f0;padding:12px 24px;padding-bottom:calc(12px + env(safe-area-inset-bottom));z-index:100;display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .cta-label{font-size:13px;color:#555;white-space:nowrap}
-  .tap-btn{display:block;background:#111;border-radius:10px;padding:12px 28px;text-align:center;font-size:14px;font-weight:600;color:#fff;text-decoration:none;white-space:nowrap;flex-shrink:0}
+  /* CTA — inline at bottom, centered, with scroll buffer */
+  .cta-block{padding:28px 0 0;border-top:1px solid #f0f0f0;margin-top:28px;text-align:center;padding-bottom:60px}
+  .cta-block p{font-size:14px;color:#555;margin-bottom:12px}
+  .tap-btn{display:inline-block;background:#111;border-radius:10px;padding:14px 40px;font-size:15px;font-weight:600;color:#fff;text-decoration:none}
  
   /* Mobile overrides */
   @media(max-width:640px){
-    body{padding:20px 16px 100px}
+    body{padding:20px 16px 60px}
     .steps{grid-template-columns:1fr}
     .tier-grid{grid-template-columns:1fr}
     .tier-span2{grid-column:span 1}
@@ -106,9 +109,8 @@
     .cs-body{grid-template-columns:1fr}
     .comp-wrap{grid-template-columns:1fr}
     .price-grid{grid-template-columns:1fr}
-    .cta-sticky{flex-direction:column;gap:8px;padding:10px 16px;padding-bottom:calc(10px + env(safe-area-inset-bottom))}
-    .tap-btn{width:100%;text-align:center}
-    .cta-label{font-size:12px}
+    .tap-btn{display:block;width:100%;text-align:center}
+    .cta-block{padding-bottom:40px}
   }
 </style>
 </head>
@@ -310,7 +312,6 @@
       </div>
     </div>
     <div class="price-card feat">
-      <span class="price-bdg">Most common</span>
       <div class="price-head"><span class="price-name">Full build</span><span class="price-amt">Custom</span></div>
       <div class="price-note">Based on hardware & complexity</div>
       <div class="price-items">
@@ -319,6 +320,7 @@
         <div class="price-item">Signed validation report</div>
         <div class="price-item">30-day full warranty + lifetime labor</div>
       </div>
+      <span class="price-bdg" style="margin-top:10px">Most common</span>
     </div>
     <div class="price-card">
       <div class="price-head"><span class="price-name">Spec document</span><span class="price-amt">$150–300</span></div>
@@ -332,13 +334,12 @@
   </div>
   <div class="payment-note">We accept Zelle, Venmo, bank transfer, and PayPal.</div>
  
-</div>
+  <!-- Inline CTA — not sticky, centered, with scroll buffer below -->
+  <div class="cta-block">
+    <p>Ready to start? No commitment.</p>
+    <a class="tap-btn" href="sms:5109996938">Text (510) 999-6938</a>
+  </div>
  
-<!-- Sticky CTA — always visible above browser chrome -->
-<div class="cta-sticky">
-  <span class="cta-label">Ready to start? No commitment.</span>
-  <a class="tap-btn" href="sms:5109996938">Text (510) 999-6938</a>
 </div>
- 
 </body>
 </html>
