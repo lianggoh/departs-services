@@ -6,345 +6,337 @@
 <title>DeParts Systems — Services</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;max-width:480px;margin:0 auto;padding:24px 16px 32px}
-  .sl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:12px}
-  .divider{border:none;border-top:1px solid #f0f0f0;margin:22px 0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;padding:32px 24px 120px}
+  .wrap{max-width:960px;margin:0 auto}
+  .sl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:14px}
+  .divider{border:none;border-top:1px solid #f0f0f0;margin:28px 0}
  
-  /* Steps */
-  .steps{display:flex;flex-direction:column;margin-bottom:20px}
-  .step{display:grid;grid-template-columns:30px 1fr;gap:10px;padding-bottom:18px}
-  .step:last-child{padding-bottom:0}
-  .step-line{display:flex;flex-direction:column;align-items:center}
-  .step-num{width:22px;height:22px;border-radius:50%;background:#f5f5f5;border:1px solid #e0e0e0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#111;flex-shrink:0}
-  .step-conn{flex:1;width:1px;background:#f0f0f0;margin-top:4px}
-  .step-content{padding-top:1px}
-  .step-title{font-size:14px;font-weight:600;color:#111;margin-bottom:3px}
-  .step-desc{font-size:13px;color:#555;line-height:1.6}
-  .pill{display:inline-block;margin-top:5px;font-size:11px;padding:3px 9px;border-radius:99px;font-weight:500}
+  /* Steps — 4 col desktop */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+  .step{background:#f9f9f9;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
+  .step-num{width:24px;height:24px;border-radius:50%;background:#fff;border:1px solid #e0e0e0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#111;flex-shrink:0}
+  .step-title{font-size:13px;font-weight:600;color:#111}
+  .step-desc{font-size:12px;color:#555;line-height:1.6;flex:1}
+  .pill{display:inline-block;margin-top:4px;font-size:10px;padding:2px 8px;border-radius:99px;font-weight:500}
   .pill-green{background:#e8f5e9;color:#2e7d32}
   .pill-amber{background:#fff8e1;color:#f57c00}
  
-  /* Tier cards */
-  .tier-list{display:flex;flex-direction:column;gap:10px;margin-bottom:6px}
-  .tier-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff}
+  /* Tier grid — 3 col desktop */
+  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
+  .tier-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff;display:flex;flex-direction:column}
   .tier-card.featured{border:2px solid #1a73e8}
   .tier-card.premium{border:1px solid #ddd;background:#fafafa}
-  .tier-name{font-size:14px;font-weight:600;color:#111;margin-bottom:4px}
+  .tier-span2{grid-column:span 2}
+  .tier-name{font-size:13px;font-weight:600;color:#111;margin-bottom:4px}
   .tier-price-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-  .tier-price{font-size:16px;font-weight:600;color:#111}
+  .tier-price{font-size:15px;font-weight:600;color:#111}
   .tier-badge{font-size:10px;padding:2px 8px;border-radius:99px;background:#e8f0fe;color:#1a73e8;font-weight:500}
-  .tier-tagline{font-size:12px;color:#888;margin-bottom:10px;font-style:italic}
-  .tier-items{display:flex;flex-direction:column;gap:5px}
-  .tier-item{font-size:13px;color:#444;line-height:1.5;display:flex;gap:6px}
+  .tier-tagline{font-size:11px;color:#888;margin-bottom:10px;font-style:italic}
+  .tier-items{display:flex;flex-direction:column;gap:4px;flex:1}
+  .tier-item{font-size:12px;color:#444;line-height:1.5;display:flex;gap:6px}
   .tier-item::before{content:'—';color:#bbb;flex-shrink:0}
-  .tier-roi{margin-top:10px;padding-top:10px;border-top:1px solid #f0f0f0;font-size:13px;font-weight:600;color:#2e7d32}
+  .tier-roi{margin-top:10px;padding-top:10px;border-top:1px solid #f0f0f0;font-size:12px;font-weight:600;color:#2e7d32}
   .tier-roi.blue{color:#1a73e8}
  
   /* Gaming one-liner */
-  .gaming-line{border:1px solid #e8e8e8;border-radius:12px;padding:14px 16px;font-size:13px;color:#444;line-height:1.6;margin-bottom:6px}
+  .gaming-line{border:1px solid #e8e8e8;border-radius:12px;padding:14px 18px;font-size:13px;color:#444;line-height:1.6;margin-bottom:6px}
   .gaming-line strong{color:#111;font-weight:600}
-  .service-note{font-size:12px;color:#888;font-style:italic;text-align:center;padding:10px 0 4px;line-height:1.6}
+  .service-note{font-size:12px;color:#888;font-style:italic;text-align:center;padding:8px 0;line-height:1.6}
  
-  /* Comparison */
-  .comp-cards{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-  .comp-row-card{border:1px solid #e8e8e8;border-radius:10px;padding:12px 14px}
-  .comp-label{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#888;margin-bottom:8px}
-  .comp-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .comp-col-head{font-size:10px;font-weight:600;color:#aaa;margin-bottom:3px}
-  .comp-col-val{font-size:13px;color:#888}
-  .comp-col-val.win{color:#111;font-weight:600}
- 
-  /* Case study */
-  .case-study{border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;margin-bottom:6px}
-  .cs-head{background:#f8f9ff;padding:14px 16px;border-bottom:1px solid #e8e8e8}
-  .cs-label{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#1a73e8;margin-bottom:4px}
-  .cs-title{font-size:13px;font-weight:600;color:#111;font-style:italic}
-  .cs-body{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
-  .cs-row{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:baseline}
-  .cs-key{font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.05em;padding-top:2px}
-  .cs-val{font-size:13px;color:#444;line-height:1.5}
-  .cs-result{font-size:13px;font-weight:600;color:#2e7d32}
- 
-  /* Support contracts */
-  .support-list{display:flex;flex-direction:column;gap:10px;margin-bottom:6px}
-  .support-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff}
+  /* Support — 3 col desktop */
+  .support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
+  .support-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff;display:flex;flex-direction:column}
   .support-card.mid{border:2px solid #1a73e8}
-  .support-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .support-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
   .support-name{font-size:14px;font-weight:600;color:#111}
   .support-price{font-size:16px;font-weight:600;color:#111}
   .support-period{font-size:11px;color:#888;font-weight:400}
-  .support-items{display:flex;flex-direction:column;gap:4px}
-  .support-item{font-size:13px;color:#444;display:flex;gap:6px;line-height:1.5}
+  .support-items{display:flex;flex-direction:column;gap:5px;flex:1}
+  .support-item{font-size:12px;color:#444;display:flex;gap:6px;line-height:1.5}
   .support-item::before{content:'—';color:#bbb;flex-shrink:0}
-  .support-note{font-size:12px;color:#888;font-style:italic;text-align:center;padding:8px 0 0;line-height:1.6}
+  .support-note{font-size:12px;color:#888;font-style:italic;text-align:center;padding:8px 0;line-height:1.6}
  
-  /* Pricing */
-  .price-list{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
-  .price-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff}
+  /* Case study */
+  .case-study{border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;margin-bottom:6px}
+  .cs-head{background:#f8f9ff;padding:14px 18px;border-bottom:1px solid #e8e8e8}
+  .cs-label{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#1a73e8;margin-bottom:4px}
+  .cs-title{font-size:13px;font-weight:600;color:#111;font-style:italic}
+  .cs-body{padding:16px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .cs-key{font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
+  .cs-val{font-size:13px;color:#444;line-height:1.5}
+  .cs-result{font-size:13px;font-weight:600;color:#2e7d32;line-height:1.5}
+ 
+  /* Comparison — 2 col */
+  .comp-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+  .comp-head{font-size:11px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;text-align:center}
+  .comp-head.win{color:#1a73e8}
+  .comp-col-items{display:flex;flex-direction:column;gap:8px}
+  .comp-item{border:1px solid #e8e8e8;border-radius:10px;padding:10px 14px}
+  .comp-item.win-item{border-color:#1a73e8;background:#f8f9ff}
+  .comp-cat{font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px}
+  .comp-val{font-size:13px;color:#888}
+  .comp-val.win{color:#111;font-weight:600}
+ 
+  /* Pricing — 3 col desktop */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+  .price-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff;display:flex;flex-direction:column}
   .price-card.feat{border:2px solid #1a73e8}
   .price-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
   .price-name{font-size:14px;font-weight:600;color:#111}
   .price-amt{font-size:20px;font-weight:600;color:#111}
   .price-bdg{font-size:10px;padding:2px 8px;border-radius:99px;background:#e8f0fe;color:#1a73e8;display:inline-block;margin-bottom:6px;font-weight:500}
   .price-note{font-size:12px;color:#888;margin-bottom:8px}
-  .price-items{display:flex;flex-direction:column;gap:4px}
-  .price-item{font-size:13px;color:#444;display:flex;gap:6px}
+  .price-items{display:flex;flex-direction:column;gap:4px;flex:1}
+  .price-item{font-size:12px;color:#444;display:flex;gap:6px}
   .price-item::before{content:'—';color:#bbb;flex-shrink:0}
-  .payment-note{font-size:12px;color:#888;text-align:center}
+  .payment-note{font-size:12px;color:#888;text-align:center;margin-bottom:0}
  
-  /* CTA */
-  .cta-block{padding:20px 0 0;border-top:1px solid #f0f0f0;margin-top:20px;text-align:center}
-  .cta-block p{font-size:13px;color:#555;margin-bottom:10px}
-  .tap-btn{display:block;background:#111;border-radius:10px;padding:14px;text-align:center;font-size:15px;font-weight:600;color:#fff;text-decoration:none}
+  /* Sticky CTA bottom bar */
+  .cta-sticky{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #f0f0f0;padding:12px 24px;padding-bottom:calc(12px + env(safe-area-inset-bottom));z-index:100;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .cta-label{font-size:13px;color:#555;white-space:nowrap}
+  .tap-btn{display:block;background:#111;border-radius:10px;padding:12px 28px;text-align:center;font-size:14px;font-weight:600;color:#fff;text-decoration:none;white-space:nowrap;flex-shrink:0}
+ 
+  /* Mobile overrides */
+  @media(max-width:640px){
+    body{padding:20px 16px 100px}
+    .steps{grid-template-columns:1fr}
+    .tier-grid{grid-template-columns:1fr}
+    .tier-span2{grid-column:span 1}
+    .support-grid{grid-template-columns:1fr}
+    .cs-body{grid-template-columns:1fr}
+    .comp-wrap{grid-template-columns:1fr}
+    .price-grid{grid-template-columns:1fr}
+    .cta-sticky{flex-direction:column;gap:8px;padding:10px 16px;padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+    .tap-btn{width:100%;text-align:center}
+    .cta-label{font-size:12px}
+  }
 </style>
 </head>
 <body>
+<div class="wrap">
  
-<div class="sl">How it works</div>
-<div class="steps">
-  <div class="step">
-    <div class="step-line"><div class="step-num">1</div><div class="step-conn"></div></div>
-    <div class="step-content">
+  <div class="sl">How it works</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
       <div class="step-title">Free consultation</div>
       <div class="step-desc">Text us your workload and budget. If your plan has a problem, we'll say so before you spend anything.</div>
       <span class="pill pill-green">No cost · No commitment</span>
     </div>
-  </div>
-  <div class="step">
-    <div class="step-line"><div class="step-num">2</div><div class="step-conn"></div></div>
-    <div class="step-content">
+    <div class="step">
+      <div class="step-num">2</div>
       <div class="step-title">Build spec document</div>
       <div class="step-desc">Written recommendation with projections, compatibility, risk flags, and 2–3 tiered options. Our reasoning — not just a parts list.</div>
       <span class="pill pill-amber">$150–300 · credited toward build</span>
     </div>
-  </div>
-  <div class="step">
-    <div class="step-line"><div class="step-num">3</div><div class="step-conn"></div></div>
-    <div class="step-content">
+    <div class="step">
+      <div class="step-num">3</div>
       <div class="step-title">Build & validation</div>
       <div class="step-desc">Full assembly, thermal validation, and stability benchmarks. Signed validation report before it ships.</div>
     </div>
-  </div>
-  <div class="step">
-    <div class="step-line"><div class="step-num">4</div></div>
-    <div class="step-content">
+    <div class="step">
+      <div class="step-num">4</div>
       <div class="step-title">Delivery & support</div>
-      <div class="step-desc">Free local Bay Area delivery or national shipping. 30-day full warranty + lifetime labor warranty. Direct text access post-delivery.</div>
+      <div class="step-desc">Free Bay Area delivery or national shipping. 30-day full warranty + lifetime labor warranty. Direct text access post-delivery.</div>
     </div>
   </div>
+ 
+  <hr class="divider">
+  <div class="sl">Professional builds</div>
+  <div class="tier-grid">
+    <div class="tier-card">
+      <div class="tier-name">Media / Video production</div>
+      <div class="tier-price-row"><span class="tier-price">$7,000+</span></div>
+      <div class="tier-tagline">Adobe, DaVinci Resolve, 4K–8K workflows</div>
+      <div class="tier-items">
+        <div class="tier-item">Dual RTX 4080/4090 with NVENC acceleration</div>
+        <div class="tier-item">Threadripper for encoding & exports</div>
+        <div class="tier-item">4–8TB NVMe scratch storage</div>
+      </div>
+      <div class="tier-roi">Deliver projects 2–3× faster</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-name">CAD / Engineering</div>
+      <div class="tier-price-row"><span class="tier-price">$8,000+</span></div>
+      <div class="tier-tagline">SolidWorks, AutoCAD, ANSYS, Revit</div>
+      <div class="tier-items">
+        <div class="tier-item">RTX A5000/A6000 with certified ISV drivers</div>
+        <div class="tier-item">Xeon/Threadripper for simulation</div>
+        <div class="tier-item">ECC RAM for data integrity</div>
+      </div>
+      <div class="tier-roi">Reduce simulation times 30–40%</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-name">3D Rendering / VFX</div>
+      <div class="tier-price-row"><span class="tier-price">$10,000+</span></div>
+      <div class="tier-tagline">Blender, Houdini, Arnold, Unreal Engine</div>
+      <div class="tier-items">
+        <div class="tier-item">Multi-GPU for GPU render farms</div>
+        <div class="tier-item">High VRAM for complex scene geometry</div>
+        <div class="tier-item">NVMe RAID for large asset pipelines</div>
+      </div>
+      <div class="tier-roi">Cut render times 50–70%</div>
+    </div>
+    <div class="tier-card featured">
+      <div class="tier-name">AI / Machine learning</div>
+      <div class="tier-price-row">
+        <span class="tier-price">$12,000+</span>
+        <span class="tier-badge">Most requested</span>
+      </div>
+      <div class="tier-tagline">LLM inference, fine-tuning, generative AI</div>
+      <div class="tier-items">
+        <div class="tier-item">RTX PRO 6000 Blackwell or multi-GPU config</div>
+        <div class="tier-item">Threadripper PRO · up to 256GB ECC RAM</div>
+        <div class="tier-item">70B–405B+ LLM inference capable</div>
+        <div class="tier-item">TensorFlow, PyTorch, vLLM ready</div>
+      </div>
+      <div class="tier-roi">Cut AWS/Azure spend up to 60%</div>
+    </div>
+    <div class="tier-card premium tier-span2">
+      <div class="tier-name">Custom / Bespoke</div>
+      <div class="tier-price-row"><span class="tier-price">$15,000+</span></div>
+      <div class="tier-tagline">One-of-a-kind — engineered and finished to spec</div>
+      <div class="tier-items">
+        <div class="tier-item">Custom hardline liquid cooling loops</div>
+        <div class="tier-item">Bespoke cable sleeving & aesthetic direction</div>
+        <div class="tier-item">Any workload — rendering, AI, simulation</div>
+        <div class="tier-item">Full validation report included</div>
+      </div>
+      <div class="tier-roi blue">Text us your vision</div>
+    </div>
+  </div>
+  <div class="gaming-line"><strong>Gaming & enthusiast</strong> — DAWN ($1,500+), DUSK (~$2,500), ECLIPSE (~$3,500). Same validation process, every build.</div>
+  <div class="service-note">Also available: diagnostics, system upgrades, and rebuild consultations — text us your situation for a custom quote.</div>
+ 
+  <hr class="divider">
+  <div class="sl">Support & refresh programs</div>
+  <div class="support-grid">
+    <div class="support-card">
+      <div class="support-head">
+        <span class="support-name">Basic</span>
+        <span class="support-price">$150<span class="support-period">/mo</span></span>
+      </div>
+      <div class="support-items">
+        <div class="support-item">Priority text response within 4 hours</div>
+        <div class="support-item">Remote diagnostic support</div>
+        <div class="support-item">Annual system health check report</div>
+      </div>
+    </div>
+    <div class="support-card mid">
+      <div class="support-head">
+        <span class="support-name">Standard</span>
+        <span class="support-price">$300<span class="support-period">/mo</span></span>
+      </div>
+      <div class="support-items">
+        <div class="support-item">Everything in Basic</div>
+        <div class="support-item">Annual in-person health check (Bay Area) or remote audit</div>
+        <div class="support-item">Hardware upgrade consultation included</div>
+        <div class="support-item">10% discount on parts for upgrades</div>
+      </div>
+    </div>
+    <div class="support-card">
+      <div class="support-head">
+        <span class="support-name">Premium</span>
+        <span class="support-price">$500<span class="support-period">/mo</span></span>
+      </div>
+      <div class="support-items">
+        <div class="support-item">Everything in Standard</div>
+        <div class="support-item">Quarterly health checks</div>
+        <div class="support-item">Priority scheduling for all service work</div>
+        <div class="support-item">Hardware refresh planning & sourcing</div>
+      </div>
+    </div>
+  </div>
+  <div class="support-note">Hardware refresh programs quoted separately based on scope. Text us to discuss.</div>
+ 
+  <hr class="divider">
+  <div class="sl">Client case study</div>
+  <div class="case-study">
+    <div class="cs-head">
+      <div class="cs-label">Consulting engagement</div>
+      <div class="cs-title">Bay Area AI researcher — LLM inference platform selection</div>
+    </div>
+    <div class="cs-body">
+      <div>
+        <div class="cs-key">Situation</div>
+        <div class="cs-val">Client planned a Mac Pro Ultra 512GB at ~$15K for running the largest available open-source LLMs locally.</div>
+      </div>
+      <div>
+        <div class="cs-key">Finding</div>
+        <div class="cs-val">Unified RAM delivers 800 GB/s vs 1,792 GB/s on dedicated VRAM — no CUDA locks out vLLM, TensorRT-LLM, and fine-tuning entirely.</div>
+      </div>
+      <div>
+        <div class="cs-key">Outcome</div>
+        <div class="cs-result">Redirected to 2× RTX PRO 6000 Blackwell — 4–6× faster inference at the same price. Fundamental architecture mistake avoided before spending.</div>
+      </div>
+    </div>
+  </div>
+ 
+  <hr class="divider">
+  <div class="sl">Why not Dell or HP?</div>
+  <div class="comp-wrap">
+    <div>
+      <div class="comp-head">Dell / HP</div>
+      <div class="comp-col-items">
+        <div class="comp-item"><div class="comp-cat">Price</div><div class="comp-val">$15–20K</div></div>
+        <div class="comp-item"><div class="comp-cat">Lead time</div><div class="comp-val">3–8 weeks (varying)</div></div>
+        <div class="comp-item"><div class="comp-cat">Configuration</div><div class="comp-val">Preset configs</div></div>
+        <div class="comp-item"><div class="comp-cat">Support</div><div class="comp-val">Call centers</div></div>
+        <div class="comp-item"><div class="comp-cat">Testing</div><div class="comp-val">Standardized</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="comp-head win">DeParts Systems</div>
+      <div class="comp-col-items">
+        <div class="comp-item win-item"><div class="comp-cat">Price</div><div class="comp-val win">$7–12K (higher perf/$)</div></div>
+        <div class="comp-item win-item"><div class="comp-cat">Lead time</div><div class="comp-val win">3–4 weeks typical</div></div>
+        <div class="comp-item win-item"><div class="comp-cat">Configuration</div><div class="comp-val win">Fully tailored</div></div>
+        <div class="comp-item win-item"><div class="comp-cat">Support</div><div class="comp-val win">Direct engineer access</div></div>
+        <div class="comp-item win-item"><div class="comp-cat">Testing</div><div class="comp-val win">Workload-specific validation</div></div>
+      </div>
+    </div>
+  </div>
+ 
+  <hr class="divider">
+  <div class="sl">Pricing</div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-head"><span class="price-name">Consultation</span><span class="price-amt">Free</span></div>
+      <div class="price-note">Via text, same-day response</div>
+      <div class="price-items">
+        <div class="price-item">Feasibility check</div>
+        <div class="price-item">Budget reality check</div>
+        <div class="price-item">No obligation</div>
+      </div>
+    </div>
+    <div class="price-card feat">
+      <span class="price-bdg">Most common</span>
+      <div class="price-head"><span class="price-name">Full build</span><span class="price-amt">Custom</span></div>
+      <div class="price-note">Based on hardware & complexity</div>
+      <div class="price-items">
+        <div class="price-item">Sourcing & assembly</div>
+        <div class="price-item">Full validation suite</div>
+        <div class="price-item">Signed validation report</div>
+        <div class="price-item">30-day full warranty + lifetime labor</div>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price-head"><span class="price-name">Spec document</span><span class="price-amt">$150–300</span></div>
+      <div class="price-note">Credited toward build</div>
+      <div class="price-items">
+        <div class="price-item">Full BOM with reasoning</div>
+        <div class="price-item">Performance projections</div>
+        <div class="price-item">Risk & liability notes</div>
+      </div>
+    </div>
+  </div>
+  <div class="payment-note">We accept Zelle, Venmo, bank transfer, and PayPal.</div>
+ 
 </div>
  
-<hr class="divider">
-<div class="sl">Professional builds</div>
-<div class="tier-list">
-  <div class="tier-card">
-    <div class="tier-name">Media / Video production</div>
-    <div class="tier-price-row"><span class="tier-price">$7,000+</span></div>
-    <div class="tier-tagline">Adobe, DaVinci Resolve, 4K–8K workflows</div>
-    <div class="tier-items">
-      <div class="tier-item">Dual RTX 4080/4090 with NVENC acceleration</div>
-      <div class="tier-item">Threadripper for encoding & exports</div>
-      <div class="tier-item">4–8TB NVMe scratch storage</div>
-    </div>
-    <div class="tier-roi">Deliver projects 2–3× faster</div>
-  </div>
-  <div class="tier-card">
-    <div class="tier-name">CAD / Engineering</div>
-    <div class="tier-price-row"><span class="tier-price">$8,000+</span></div>
-    <div class="tier-tagline">SolidWorks, AutoCAD, ANSYS, Revit</div>
-    <div class="tier-items">
-      <div class="tier-item">RTX A5000/A6000 with certified ISV drivers</div>
-      <div class="tier-item">Xeon/Threadripper for simulation</div>
-      <div class="tier-item">ECC RAM for data integrity</div>
-    </div>
-    <div class="tier-roi">Reduce simulation times 30–40%</div>
-  </div>
-  <div class="tier-card">
-    <div class="tier-name">3D Rendering / VFX</div>
-    <div class="tier-price-row"><span class="tier-price">$10,000+</span></div>
-    <div class="tier-tagline">Blender, Houdini, Arnold, Unreal Engine</div>
-    <div class="tier-items">
-      <div class="tier-item">Multi-GPU for GPU render farms</div>
-      <div class="tier-item">High VRAM for complex scene geometry</div>
-      <div class="tier-item">NVMe RAID for large asset pipelines</div>
-    </div>
-    <div class="tier-roi">Cut render times 50–70%</div>
-  </div>
-  <div class="tier-card featured">
-    <div class="tier-name">AI / Machine learning</div>
-    <div class="tier-price-row">
-      <span class="tier-price">$12,000+</span>
-      <span class="tier-badge">Most requested</span>
-    </div>
-    <div class="tier-tagline">LLM inference, fine-tuning, generative AI</div>
-    <div class="tier-items">
-      <div class="tier-item">RTX PRO 6000 Blackwell or multi-GPU config</div>
-      <div class="tier-item">Threadripper PRO · up to 256GB ECC RAM</div>
-      <div class="tier-item">70B–405B+ LLM inference capable</div>
-      <div class="tier-item">TensorFlow, PyTorch, vLLM ready</div>
-    </div>
-    <div class="tier-roi">Cut AWS/Azure spend up to 60%</div>
-  </div>
-  <div class="tier-card premium">
-    <div class="tier-name">Custom / Bespoke</div>
-    <div class="tier-price-row"><span class="tier-price">$15,000+</span></div>
-    <div class="tier-tagline">One-of-a-kind — engineered and finished to spec</div>
-    <div class="tier-items">
-      <div class="tier-item">Custom hardline liquid cooling loops</div>
-      <div class="tier-item">Bespoke cable sleeving & aesthetic direction</div>
-      <div class="tier-item">Any workload — rendering, AI, simulation</div>
-      <div class="tier-item">Full validation report included</div>
-    </div>
-    <div class="tier-roi blue">Text us your vision</div>
-  </div>
-</div>
- 
-<div class="gaming-line">
-  <strong>Gaming & enthusiast</strong> — DAWN ($1,500+), DUSK (~$2,500), ECLIPSE (~$3,500). Same validation process, every build. <a href="#" style="color:#1a73e8;text-decoration:none;font-weight:500">See builds →</a>
-</div>
-<div class="service-note">Also available: diagnostics, system upgrades, and rebuild consultations — text us your situation for a custom quote.</div>
- 
-<hr class="divider">
-<div class="sl">Support & refresh programs</div>
-<div class="support-list">
-  <div class="support-card">
-    <div class="support-head">
-      <span class="support-name">Basic</span>
-      <span class="support-price">$150<span class="support-period">/mo</span></span>
-    </div>
-    <div class="support-items">
-      <div class="support-item">Priority text response within 4 hours</div>
-      <div class="support-item">Remote diagnostic support</div>
-      <div class="support-item">Annual system health check report</div>
-    </div>
-  </div>
-  <div class="support-card mid">
-    <div class="support-head">
-      <span class="support-name">Standard</span>
-      <span class="support-price">$300<span class="support-period">/mo</span></span>
-    </div>
-    <div class="support-items">
-      <div class="support-item">Everything in Basic</div>
-      <div class="support-item">Annual in-person health check (Bay Area) or remote audit</div>
-      <div class="support-item">Hardware upgrade consultation included</div>
-      <div class="support-item">10% discount on parts for any upgrades</div>
-    </div>
-  </div>
-  <div class="support-card">
-    <div class="support-head">
-      <span class="support-name">Premium</span>
-      <span class="support-price">$500<span class="support-period">/mo</span></span>
-    </div>
-    <div class="support-items">
-      <div class="support-item">Everything in Standard</div>
-      <div class="support-item">Quarterly health checks</div>
-      <div class="support-item">Priority scheduling for all service work</div>
-      <div class="support-item">Hardware refresh planning & sourcing</div>
-    </div>
-  </div>
-</div>
-<div class="support-note">Hardware refresh programs quoted separately based on scope. Text us to discuss.</div>
- 
-<hr class="divider">
-<div class="sl">Client case study</div>
-<div class="case-study">
-  <div class="cs-head">
-    <div class="cs-label">Consulting engagement</div>
-    <div class="cs-title">Bay Area AI researcher — LLM inference platform</div>
-  </div>
-  <div class="cs-body">
-    <div class="cs-row">
-      <span class="cs-key">Situation</span>
-      <span class="cs-val">Client planned a Mac Pro Ultra 512GB at ~$15K for running the largest available open-source LLMs locally.</span>
-    </div>
-    <div class="cs-row">
-      <span class="cs-key">Finding</span>
-      <span class="cs-val">Unified RAM delivers 800 GB/s vs 1,792 GB/s on dedicated VRAM — no CUDA support locks out vLLM, TensorRT-LLM, and fine-tuning entirely.</span>
-    </div>
-    <div class="cs-row">
-      <span class="cs-key">Outcome</span>
-      <span class="cs-result">Redirected to 2× RTX PRO 6000 Blackwell — 4–6× faster inference at the same price. Client avoided a fundamental architecture mistake before spending.</span>
-    </div>
-  </div>
-</div>
- 
-<hr class="divider">
-<div class="sl">Why not Dell or HP?</div>
-<div class="comp-cards">
-  <div class="comp-row-card">
-    <div class="comp-label">Price</div>
-    <div class="comp-cols">
-      <div><div class="comp-col-head">Dell / HP</div><div class="comp-col-val">$15–20K</div></div>
-      <div><div class="comp-col-head">DeParts</div><div class="comp-col-val win">$7–12K (higher perf/$)</div></div>
-    </div>
-  </div>
-  <div class="comp-row-card">
-    <div class="comp-label">Lead time</div>
-    <div class="comp-cols">
-      <div><div class="comp-col-head">Dell / HP</div><div class="comp-col-val">3–8 weeks</div></div>
-      <div><div class="comp-col-head">DeParts</div><div class="comp-col-val win">3–4 weeks typical</div></div>
-    </div>
-  </div>
-  <div class="comp-row-card">
-    <div class="comp-label">Configuration</div>
-    <div class="comp-cols">
-      <div><div class="comp-col-head">Dell / HP</div><div class="comp-col-val">Preset configs</div></div>
-      <div><div class="comp-col-head">DeParts</div><div class="comp-col-val win">Fully tailored</div></div>
-    </div>
-  </div>
-  <div class="comp-row-card">
-    <div class="comp-label">Support</div>
-    <div class="comp-cols">
-      <div><div class="comp-col-head">Dell / HP</div><div class="comp-col-val">Call centers</div></div>
-      <div><div class="comp-col-head">DeParts</div><div class="comp-col-val win">Direct engineer access</div></div>
-    </div>
-  </div>
-  <div class="comp-row-card">
-    <div class="comp-label">Testing</div>
-    <div class="comp-cols">
-      <div><div class="comp-col-head">Dell / HP</div><div class="comp-col-val">Standardized</div></div>
-      <div><div class="comp-col-head">DeParts</div><div class="comp-col-val win">Workload-specific validation</div></div>
-    </div>
-  </div>
-</div>
- 
-<hr class="divider">
-<div class="sl">Pricing</div>
-<div class="price-list">
-  <div class="price-card">
-    <div class="price-head"><span class="price-name">Consultation</span><span class="price-amt">Free</span></div>
-    <div class="price-note">Via text, same-day response</div>
-    <div class="price-items">
-      <div class="price-item">Feasibility check</div>
-      <div class="price-item">Budget reality check</div>
-      <div class="price-item">No obligation</div>
-    </div>
-  </div>
-  <div class="price-card feat">
-    <span class="price-bdg">Most common</span>
-    <div class="price-head"><span class="price-name">Full build</span><span class="price-amt">Custom</span></div>
-    <div class="price-note">Based on hardware & complexity</div>
-    <div class="price-items">
-      <div class="price-item">Sourcing & assembly</div>
-      <div class="price-item">Full validation suite</div>
-      <div class="price-item">Signed validation report</div>
-      <div class="price-item">30-day full warranty + lifetime labor</div>
-    </div>
-  </div>
-  <div class="price-card">
-    <div class="price-head"><span class="price-name">Spec document</span><span class="price-amt">$150–300</span></div>
-    <div class="price-note">Credited toward build</div>
-    <div class="price-items">
-      <div class="price-item">Full BOM with reasoning</div>
-      <div class="price-item">Performance projections</div>
-      <div class="price-item">Risk & liability notes</div>
-    </div>
-  </div>
-</div>
-<div class="payment-note">We accept Zelle, Venmo, bank transfer, and PayPal.</div>
- 
-<div class="cta-block">
-  <p>Ready to start?</p>
+<!-- Sticky CTA — always visible above browser chrome -->
+<div class="cta-sticky">
+  <span class="cta-label">Ready to start? No commitment.</span>
   <a class="tap-btn" href="sms:5109996938">Text (510) 999-6938</a>
 </div>
  
