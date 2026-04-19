@@ -6,7 +6,7 @@
 <title>DeParts Systems — Services</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;padding:24px 16px;max-width:480px;margin:0 auto}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;max-width:480px;margin:0 auto;padding:24px 16px 32px}
   .sl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:12px}
   .divider{border:none;border-top:1px solid #f0f0f0;margin:22px 0}
  
@@ -39,18 +39,11 @@
   .tier-item::before{content:'—';color:#bbb;flex-shrink:0}
   .tier-roi{margin-top:10px;padding-top:10px;border-top:1px solid #f0f0f0;font-size:13px;font-weight:600;color:#2e7d32}
   .tier-roi.blue{color:#1a73e8}
-  .service-note{font-size:12px;color:#888;font-style:italic;text-align:center;padding:10px 0 4px;line-height:1.6}
  
-  /* Gaming */
-  .gaming-list{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
-  .gc{border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;background:#fff}
-  .gc-head{padding:12px 14px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:baseline}
-  .gc-name{font-size:14px;font-weight:600;color:#111}
-  .gc-price{font-size:13px;font-weight:500;color:#555}
-  .gc-body{padding:10px 14px;display:flex;flex-direction:column;gap:4px}
-  .gc-tagline{font-size:11px;color:#888;font-style:italic;margin-bottom:4px}
-  .gc-item{font-size:12px;color:#444;display:flex;gap:6px}
-  .gc-item::before{content:'—';color:#bbb;flex-shrink:0}
+  /* Gaming one-liner */
+  .gaming-line{border:1px solid #e8e8e8;border-radius:12px;padding:14px 16px;font-size:13px;color:#444;line-height:1.6;margin-bottom:6px}
+  .gaming-line strong{color:#111;font-weight:600}
+  .service-note{font-size:12px;color:#888;font-style:italic;text-align:center;padding:10px 0 4px;line-height:1.6}
  
   /* Comparison */
   .comp-cards{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
@@ -60,6 +53,30 @@
   .comp-col-head{font-size:10px;font-weight:600;color:#aaa;margin-bottom:3px}
   .comp-col-val{font-size:13px;color:#888}
   .comp-col-val.win{color:#111;font-weight:600}
+ 
+  /* Case study */
+  .case-study{border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;margin-bottom:6px}
+  .cs-head{background:#f8f9ff;padding:14px 16px;border-bottom:1px solid #e8e8e8}
+  .cs-label{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#1a73e8;margin-bottom:4px}
+  .cs-title{font-size:13px;font-weight:600;color:#111;font-style:italic}
+  .cs-body{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+  .cs-row{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:baseline}
+  .cs-key{font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.05em;padding-top:2px}
+  .cs-val{font-size:13px;color:#444;line-height:1.5}
+  .cs-result{font-size:13px;font-weight:600;color:#2e7d32}
+ 
+  /* Support contracts */
+  .support-list{display:flex;flex-direction:column;gap:10px;margin-bottom:6px}
+  .support-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff}
+  .support-card.mid{border:2px solid #1a73e8}
+  .support-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .support-name{font-size:14px;font-weight:600;color:#111}
+  .support-price{font-size:16px;font-weight:600;color:#111}
+  .support-period{font-size:11px;color:#888;font-weight:400}
+  .support-items{display:flex;flex-direction:column;gap:4px}
+  .support-item{font-size:13px;color:#444;display:flex;gap:6px;line-height:1.5}
+  .support-item::before{content:'—';color:#bbb;flex-shrink:0}
+  .support-note{font-size:12px;color:#888;font-style:italic;text-align:center;padding:8px 0 0;line-height:1.6}
  
   /* Pricing */
   .price-list{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
@@ -73,11 +90,12 @@
   .price-items{display:flex;flex-direction:column;gap:4px}
   .price-item{font-size:13px;color:#444;display:flex;gap:6px}
   .price-item::before{content:'—';color:#bbb;flex-shrink:0}
-  .payment-note{font-size:12px;color:#888;text-align:center;margin-bottom:0}
+  .payment-note{font-size:12px;color:#888;text-align:center}
  
-  .cta-block{text-align:center;padding:20px 0 0;border-top:1px solid #f0f0f0;margin-top:20px}
+  /* CTA */
+  .cta-block{padding:20px 0 0;border-top:1px solid #f0f0f0;margin-top:20px;text-align:center}
   .cta-block p{font-size:13px;color:#555;margin-bottom:10px}
-  .tap-btn{display:block;background:#f5f5f5;border:1px solid #e0e0e0;border-radius:10px;padding:14px;text-align:center;font-size:15px;font-weight:600;color:#111;text-decoration:none}
+  .tap-btn{display:block;background:#111;border-radius:10px;padding:14px;text-align:center;font-size:15px;font-weight:600;color:#fff;text-decoration:none}
 </style>
 </head>
 <body>
@@ -181,38 +199,74 @@
   </div>
 </div>
  
+<div class="gaming-line">
+  <strong>Gaming & enthusiast</strong> — DAWN ($1,500+), DUSK (~$2,500), ECLIPSE (~$3,500). Same validation process, every build. <a href="#" style="color:#1a73e8;text-decoration:none;font-weight:500">See builds →</a>
+</div>
+<div class="service-note">Also available: diagnostics, system upgrades, and rebuild consultations — text us your situation for a custom quote.</div>
+ 
 <hr class="divider">
-<div class="sl">Gaming & enthusiast builds</div>
-<div class="gaming-list">
-  <div class="gc">
-    <div class="gc-head"><div class="gc-name">DAWN</div><div class="gc-price">$1,500+</div></div>
-    <div class="gc-body">
-      <div class="gc-tagline">Raw essentials · 1080p 120+ FPS</div>
-      <div class="gc-item">32GB DDR5 RAM base</div>
-      <div class="gc-item">1TB NVMe SSD base</div>
-      <div class="gc-item">Same validation process as every build</div>
+<div class="sl">Support & refresh programs</div>
+<div class="support-list">
+  <div class="support-card">
+    <div class="support-head">
+      <span class="support-name">Basic</span>
+      <span class="support-price">$150<span class="support-period">/mo</span></span>
+    </div>
+    <div class="support-items">
+      <div class="support-item">Priority text response within 4 hours</div>
+      <div class="support-item">Remote diagnostic support</div>
+      <div class="support-item">Annual system health check report</div>
     </div>
   </div>
-  <div class="gc">
-    <div class="gc-head"><div class="gc-name">DUSK</div><div class="gc-price">~$2,500</div></div>
-    <div class="gc-body">
-      <div class="gc-tagline">Max value · 1440p 100+ FPS</div>
-      <div class="gc-item">12–16GB VRAM GPU</div>
-      <div class="gc-item">12–24 core/thread CPU</div>
-      <div class="gc-item">Most popular gaming tier</div>
+  <div class="support-card mid">
+    <div class="support-head">
+      <span class="support-name">Standard</span>
+      <span class="support-price">$300<span class="support-period">/mo</span></span>
+    </div>
+    <div class="support-items">
+      <div class="support-item">Everything in Basic</div>
+      <div class="support-item">Annual in-person health check (Bay Area) or remote audit</div>
+      <div class="support-item">Hardware upgrade consultation included</div>
+      <div class="support-item">10% discount on parts for any upgrades</div>
     </div>
   </div>
-  <div class="gc">
-    <div class="gc-head"><div class="gc-name">ECLIPSE</div><div class="gc-price">~$3,500</div></div>
-    <div class="gc-body">
-      <div class="gc-tagline">Next gen · 4K ultra / VR-ready</div>
-      <div class="gc-item">RTX 5090 · 20–24GB VRAM</div>
-      <div class="gc-item">Liquid cooling standard</div>
-      <div class="gc-item">Showcase-grade build quality</div>
+  <div class="support-card">
+    <div class="support-head">
+      <span class="support-name">Premium</span>
+      <span class="support-price">$500<span class="support-period">/mo</span></span>
+    </div>
+    <div class="support-items">
+      <div class="support-item">Everything in Standard</div>
+      <div class="support-item">Quarterly health checks</div>
+      <div class="support-item">Priority scheduling for all service work</div>
+      <div class="support-item">Hardware refresh planning & sourcing</div>
     </div>
   </div>
 </div>
-<div class="service-note">Also available: diagnostics, system upgrades, and rebuild consultations — text us your situation for a custom quote.</div>
+<div class="support-note">Hardware refresh programs quoted separately based on scope. Text us to discuss.</div>
+ 
+<hr class="divider">
+<div class="sl">Client case study</div>
+<div class="case-study">
+  <div class="cs-head">
+    <div class="cs-label">Consulting engagement</div>
+    <div class="cs-title">Bay Area AI researcher — LLM inference platform</div>
+  </div>
+  <div class="cs-body">
+    <div class="cs-row">
+      <span class="cs-key">Situation</span>
+      <span class="cs-val">Client planned a Mac Pro Ultra 512GB at ~$15K for running the largest available open-source LLMs locally.</span>
+    </div>
+    <div class="cs-row">
+      <span class="cs-key">Finding</span>
+      <span class="cs-val">Unified RAM delivers 800 GB/s vs 1,792 GB/s on dedicated VRAM — no CUDA support locks out vLLM, TensorRT-LLM, and fine-tuning entirely.</span>
+    </div>
+    <div class="cs-row">
+      <span class="cs-key">Outcome</span>
+      <span class="cs-result">Redirected to 2× RTX PRO 6000 Blackwell — 4–6× faster inference at the same price. Client avoided a fundamental architecture mistake before spending.</span>
+    </div>
+  </div>
+</div>
  
 <hr class="divider">
 <div class="sl">Why not Dell or HP?</div>
@@ -291,10 +345,8 @@
  
 <div class="cta-block">
   <p>Ready to start?</p>
-  <a class="tap-btn" href="tel:5109996938">Tap to text (510) 999-6938</a>
+  <a class="tap-btn" href="sms:5109996938">Text (510) 999-6938</a>
 </div>
  
 </body>
 </html>
-
-</div>
