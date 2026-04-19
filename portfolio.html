@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeParts Systems — Portfolio</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;padding:32px 24px 120px}
+  .wrap{max-width:960px;margin:0 auto}
+  .sl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:14px}
+  .divider{border:none;border-top:1px solid #f0f0f0;margin:28px 0}
+ 
+  /* Pro build cards */
+  .pro-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+  .pc{border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .pc.pending{border-style:dashed;opacity:0.7}
+  .pc.consulting{border-color:#1a73e8;border-width:2px}
+ 
+  /* Card header */
+  .pc-head{padding:14px 16px;border-bottom:1px solid #f0f0f0}
+  .pc-head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px}
+  .pc-title{font-size:14px;font-weight:600;color:#111;line-height:1.4;flex:1}
+  .pc-sub{font-size:11px;color:#888}
+  .badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0}
+  .bdg{font-size:10px;padding:2px 8px;border-radius:99px;white-space:nowrap;font-weight:500}
+  .bdg-built{background:#e8f5e9;color:#2e7d32}
+  .bdg-consult{background:#e8f0fe;color:#1a73e8}
+  .bdg-diag{background:#fff8e1;color:#f57c00}
+  .bdg-pending{background:#f5f5f5;color:#888}
+  .bdg-scope{background:#fce8e6;color:#c5221f}
+ 
+  /* Card body */
+  .pc-body{padding:14px 16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1}
+  .pc-sl{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#aaa;margin-bottom:6px}
+  .spec-list{display:flex;flex-direction:column;gap:4px}
+  .spec-row{display:flex;justify-content:space-between;font-size:12px;gap:8px}
+  .spec-k{color:#888}
+  .spec-v{color:#111;font-weight:500;text-align:right}
+  .find-list{display:flex;flex-direction:column;gap:5px}
+  .find{font-size:12px;color:#444;display:grid;grid-template-columns:10px 1fr;gap:6px;line-height:1.5}
+  .dot{width:5px;height:5px;border-radius:50%;margin-top:5px;flex-shrink:0}
+  .dg{background:#34a853}.db{background:#1a73e8}.da{background:#fbbc04}.dr{background:#ea4335}.dp{background:#9334e6}
+ 
+  /* Quote */
+  .pc-quote{padding:10px 16px;border-top:1px solid #f0f0f0;font-size:12px;color:#555;font-style:italic;line-height:1.6}
+ 
+  /* Pending label */
+  .pc-pending{padding:12px 16px;font-size:12px;color:#888;font-style:italic}
+ 
+  /* Status note for scoped builds */
+  .pc-status{padding:10px 16px;border-top:1px solid #f0f0f0;display:flex;align-items:center;gap:8px}
+  .status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+  .status-green{background:#34a853}
+  .status-amber{background:#fbbc04}
+  .status-text{font-size:12px;color:#555}
+ 
+  /* Gaming section */
+  .gaming-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}
+  .gc{border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .gc-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center;display:block}
+  .gc-body{padding:14px}
+  .gc-name{font-size:15px;font-weight:700;color:#111;margin-bottom:2px}
+  .gc-price{font-size:14px;font-weight:600;color:#1a73e8;margin-bottom:6px}
+  .gc-tagline{font-size:11px;color:#888;font-style:italic;margin-bottom:10px}
+  .gc-items{display:flex;flex-direction:column;gap:4px}
+  .gc-item{font-size:12px;color:#444;display:flex;gap:6px}
+  .gc-item::before{content:'—';color:#bbb;flex-shrink:0}
+ 
+  /* CTA */
+  .cta-block{padding:28px 0 0;border-top:1px solid #f0f0f0;margin-top:28px;text-align:center;padding-bottom:100px}
+  .cta-block p{font-size:14px;color:#555;margin-bottom:12px}
+  .tap-btn{display:inline-block;background:#111;border-radius:10px;padding:14px 40px;font-size:15px;font-weight:600;color:#fff;text-decoration:none}
+ 
+  /* Mobile */
+  @media(max-width:640px){
+    body{padding:20px 16px 100px}
+    .pro-grid{grid-template-columns:1fr}
+    .pc-body{grid-template-columns:1fr}
+    .gaming-grid{grid-template-columns:1fr}
+    .gc-img{aspect-ratio:4/3}
+    .tap-btn{display:block;width:100%;text-align:center}
+    .cta-block{padding-bottom:80px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+ 
+  <div class="sl">Professional builds & engagements</div>
+  <div class="pro-grid">
+ 
+    <!-- EE Build — only completed paid build -->
+    <div class="pc">
+      <div class="pc-head">
+        <div class="pc-head-row">
+          <div class="pc-title">High-frequency workstation — electrical engineer</div>
+          <div class="badges"><span class="bdg bdg-built">Built & validated</span></div>
+        </div>
+        <div class="pc-sub">Intel i9-14900KF · Custom AIO · Bay Area · 2025</div>
+      </div>
+      <div class="pc-body">
+        <div>
+          <div class="pc-sl">Specs</div>
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-k">CPU</span><span class="spec-v">i9-14900KF @ 6GHz</span></div>
+            <div class="spec-row"><span class="spec-k">Cooling</span><span class="spec-v">Custom AIO</span></div>
+            <div class="spec-row"><span class="spec-k">Use case</span><span class="spec-v">Low-latency compute</span></div>
+            <div class="spec-row"><span class="spec-k">Validation</span><span class="spec-v">Cinebench ×3, HWiNFO</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="pc-sl">Validation findings</div>
+          <div class="find-list">
+            <div class="find"><div class="dot dg"></div><span>3× Cinebench R23 within 2% variance — stable</span></div>
+            <div class="find"><div class="dot dg"></div><span>Vcore confirmed under 1.55V under full load</span></div>
+            <div class="find"><div class="dot da"></div><span>0x12B microcode flagged — client advised, disclaimer signed</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pc-quote">"Rock solid at 6GHz. Professional process start to finish."</div>
+    </div>
+ 
+    <!-- Andy Litwin — fully spec'd, pending -->
+    <div class="pc pending">
+      <div class="pc-head">
+        <div class="pc-head-row">
+          <div class="pc-title">RTX PRO 6000 Blackwell workstation — fine jewelry designer</div>
+          <div class="badges"><span class="bdg bdg-pending">Pending commitment</span></div>
+        </div>
+        <div class="pc-sub">Diamond ray tracing · ~$100K build · Fully spec'd</div>
+      </div>
+      <div class="pc-body">
+        <div>
+          <div class="pc-sl">Spec highlights</div>
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-k">GPU</span><span class="spec-v">RTX PRO 6000 Blackwell</span></div>
+            <div class="spec-row"><span class="spec-k">Platform</span><span class="spec-v">Threadripper PRO 9995WX</span></div>
+            <div class="spec-row"><span class="spec-k">RAM</span><span class="spec-v">512GB–2TB ECC</span></div>
+            <div class="spec-row"><span class="spec-k">Use case</span><span class="spec-v">Diamond RT rendering</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="pc-sl">Scope status</div>
+          <div class="find-list">
+            <div class="find"><div class="dot dg"></div><span>Full build spec completed</span></div>
+            <div class="find"><div class="dot dg"></div><span>Components identified & sourced</span></div>
+            <div class="find"><div class="dot dg"></div><span>Buildable within 1 week of go-ahead</span></div>
+            <div class="find"><div class="dot da"></div><span>Awaiting client commitment</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pc-pending">Full case study published upon build completion.</div>
+    </div>
+ 
+    <!-- A6000 ML trainer — scoped, ready -->
+    <div class="pc">
+      <div class="pc-head">
+        <div class="pc-head-row">
+          <div class="pc-title">4× A6000 ML training workstation — ML engineer</div>
+          <div class="badges">
+            <span class="bdg bdg-diag">Diagnostic</span>
+            <span class="bdg bdg-scope">Build ready</span>
+          </div>
+        </div>
+        <div class="pc-sub">Quad-GPU · PCIe fault isolation · Fully scoped</div>
+      </div>
+      <div class="pc-body">
+        <div>
+          <div class="pc-sl">System</div>
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-k">GPUs</span><span class="spec-v">4× RTX A6000</span></div>
+            <div class="spec-row"><span class="spec-k">Issue</span><span class="spec-v">Only 3 of 4 active</span></div>
+            <div class="spec-row"><span class="spec-k">Root cause</span><span class="spec-v">PCIe lane fault</span></div>
+            <div class="spec-row"><span class="spec-k">Fix</span><span class="spec-v">Max-Q SKU swap</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="pc-sl">Findings</div>
+          <div class="find-list">
+            <div class="find"><div class="dot dg"></div><span>PCIe lane fault isolated — 4th GPU dropout confirmed</span></div>
+            <div class="find"><div class="dot db"></div><span>Max-Q SKU recommended for power envelope fit</span></div>
+            <div class="find"><div class="dot dg"></div><span>Full build spec completed for refresh</span></div>
+            <div class="find"><div class="dot dg"></div><span>Ready to build as early as tomorrow</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pc-status">
+        <div class="status-dot status-green"></div>
+        <div class="status-text">Fully scoped · Build can commence immediately</div>
+      </div>
+    </div>
+ 
+    <!-- Utilidata PE — in consultation -->
+    <div class="pc consulting">
+      <div class="pc-head">
+        <div class="pc-head-row">
+          <div class="pc-title">LLM inference platform — principal engineer</div>
+          <div class="badges"><span class="bdg bdg-consult">Consulting</span></div>
+        </div>
+        <div class="pc-sub">MacBook Pro 128GB vs RTX PRO 6000 · LLM 24/7 local inference</div>
+      </div>
+      <div class="pc-body">
+        <div>
+          <div class="pc-sl">Client situation</div>
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-k">Goal</span><span class="spec-v">24/7 local LLM</span></div>
+            <div class="spec-row"><span class="spec-k">Current plan</span><span class="spec-v">MacBook Pro 128GB</span></div>
+            <div class="spec-row"><span class="spec-k">Budget</span><span class="spec-v">~$5,500</span></div>
+            <div class="spec-row"><span class="spec-k">Constraint</span><span class="spec-v">Cost-sensitive</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="pc-sl">Key findings</div>
+          <div class="find-list">
+            <div class="find"><div class="dot dr"></div><span>Unified RAM runs 70B at ~8–15 tok/s — slower than you read</span></div>
+            <div class="find"><div class="dot dr"></div><span>No CUDA — vLLM and TensorRT-LLM unavailable</span></div>
+            <div class="find"><div class="dot db"></div><span>RTX PRO 6000 hits 34–90 tok/s — up to 6× faster</span></div>
+            <div class="find"><div class="dot dp"></div><span>Budget-fit alternatives under evaluation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pc-status">
+        <div class="status-dot status-amber"></div>
+        <div class="status-text">Consultation in progress · Recommendation pending</div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <hr class="divider">
+  <div class="sl">Gaming & enthusiast builds</div>
+  <div class="gaming-grid">
+ 
+    <div class="gc">
+      <img class="gc-img" src="https://via.placeholder.com/400x533/111111/ffffff?text=DAWN+Build" alt="DAWN build">
+      <div class="gc-body">
+        <div class="gc-name">DAWN</div>
+        <div class="gc-price">~$2,000</div>
+        <div class="gc-tagline">Raw essentials · 1080p 120+ FPS</div>
+        <div class="gc-items">
+          <div class="gc-item">64GB DDR5 RAM</div>
+          <div class="gc-item">2TB NVMe SSD</div>
+          <div class="gc-item">Mid-range GPU · validated</div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="gc">
+      <img class="gc-img" src="https://via.placeholder.com/400x533/111111/ffffff?text=DUSK+Build" alt="DUSK build">
+      <div class="gc-body">
+        <div class="gc-name">DUSK</div>
+        <div class="gc-price">~$3,000</div>
+        <div class="gc-tagline">Max value · 1440p 100+ FPS</div>
+        <div class="gc-items">
+          <div class="gc-item">12–16GB VRAM GPU</div>
+          <div class="gc-item">12–24 core/thread CPU</div>
+          <div class="gc-item">Most popular gaming tier</div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="gc">
+      <img class="gc-img" src="https://via.placeholder.com/400x533/111111/ffffff?text=ECLIPSE+Build" alt="ECLIPSE build">
+      <div class="gc-body">
+        <div class="gc-name">ECLIPSE</div>
+        <div class="gc-price">~$4,000</div>
+        <div class="gc-tagline">Next gen · 4K ultra / VR-ready</div>
+        <div class="gc-items">
+          <div class="gc-item">RTX 5090 · 20–24GB VRAM</div>
+          <div class="gc-item">Liquid cooling standard</div>
+          <div class="gc-item">Showcase-grade build quality</div>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+  <div style="font-size:12px;color:#888;text-align:center;padding:8px 0;font-style:italic">5.0★ across 121 Google reviews · Every build validated before delivery</div>
+ 
+  <div class="cta-block">
+    <p>Want to see your build here?</p>
+    <a class="tap-btn" href="sms:5109996938">Text (510) 999-6938</a>
+  </div>
+ 
+</div>
+</body>
+</html>
