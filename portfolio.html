@@ -7,7 +7,7 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;padding:32px 24px 120px}
-  .wrap{max-width:960px;margin:0 auto}
+  .wrap{max-width:1200px;margin:0 auto}
   .sl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:14px}
   .divider{border:none;border-top:1px solid #f0f0f0;margin:28px 0}
  
@@ -48,7 +48,7 @@
   /* Pending label */
   .pc-pending{padding:12px 16px;font-size:12px;color:#888;font-style:italic}
  
-  /* Status note for scoped builds */
+  /* Status */
   .pc-status{padding:10px 16px;border-top:1px solid #f0f0f0;display:flex;align-items:center;gap:8px}
   .status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
   .status-green{background:#34a853}
@@ -58,7 +58,11 @@
   /* Gaming section */
   .gaming-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}
   .gc{border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
-  .gc-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center;display:block}
+  /* Each photo has its own object-position — adjust % values to re-crop */
+  .gc-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+  .gc-img-dawn{object-position:center 20%}   /* DAWN: move up/down by changing 20% */
+  .gc-img-dusk{object-position:center 30%}   /* DUSK: move up/down by changing 30% */
+  .gc-img-eclipse{object-position:center 25%} /* ECLIPSE: move up/down by changing 25% */
   .gc-body{padding:14px}
   .gc-name{font-size:15px;font-weight:700;color:#111;margin-bottom:2px}
   .gc-price{font-size:14px;font-weight:600;color:#1a73e8;margin-bottom:6px}
@@ -254,7 +258,7 @@
   <div class="gaming-grid">
  
     <div class="gc">
-      <img class="gc-img" src="https://raw.githubusercontent.com/lianggoh/departs-services/main/dawn.jpg" alt="DAWN build">
+      <img class="gc-img gc-img-dawn" src="https://raw.githubusercontent.com/lianggoh/departs-services/main/dawn.jpeg" alt="DAWN build">
       <div class="gc-body">
         <div class="gc-name">DAWN</div>
         <div class="gc-price">~$2,000</div>
@@ -269,7 +273,7 @@
     </div>
  
     <div class="gc">
-      <img class="gc-img" src="https://via.placeholder.com/400x533/111111/ffffff?text=DUSK+Build" alt="DUSK build">
+      <img class="gc-img gc-img-dusk" src="https://raw.githubusercontent.com/lianggoh/departs-services/main/dusk.jpg" alt="DUSK build">
       <div class="gc-body">
         <div class="gc-name">DUSK <span style="font-size:11px;font-weight:500;color:#1a73e8;font-style:italic">Most popular</span></div>
         <div class="gc-price">~$3,000</div>
@@ -284,7 +288,7 @@
     </div>
  
     <div class="gc">
-      <img class="gc-img" src="https://via.placeholder.com/400x533/111111/ffffff?text=ECLIPSE+Build" alt="ECLIPSE build">
+      <img class="gc-img gc-img-eclipse" src="https://raw.githubusercontent.com/lianggoh/departs-services/main/eclipse.jpg" alt="ECLIPSE build">
       <div class="gc-body">
         <div class="gc-name">ECLIPSE <span style="font-size:11px;font-weight:500;color:#888;font-style:italic">Flagship</span></div>
         <div class="gc-price">~$4,000</div>
