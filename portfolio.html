@@ -183,7 +183,7 @@
             <span class="bdg bdg-scope">Build ready</span>
           </div>
         </div>
-        <div class="pc-sub">Quad-GPU · PSU fault isolation · Fully scoped</div>
+        <div class="pc-sub">Quad-GPU · PSU undervolt diagnosis · Fully scoped</div>
       </div>
       <div class="pc-body">
         <div>
@@ -191,17 +191,17 @@
           <div class="spec-list">
             <div class="spec-row"><span class="spec-k">GPUs</span><span class="spec-v">4× RTX A6000</span></div>
             <div class="spec-row"><span class="spec-k">Issue</span><span class="spec-v">Only 3 of 4 active</span></div>
-            <div class="spec-row"><span class="spec-k">Root cause</span><span class="spec-v">PCIe lane fault</span></div>
-            <div class="spec-row"><span class="spec-k">Fix</span><span class="spec-v">Max-Q SKU swap</span></div>
+            <div class="spec-row"><span class="spec-k">Root cause</span><span class="spec-v">PSU insufficient for quad-GPU load</span></div>
+            <div class="spec-row"><span class="spec-k">Fix</span><span class="spec-v">PSU upgrade + Max-Q SKU</span></div>
           </div>
         </div>
         <div>
           <div class="pc-sl">Findings</div>
           <div class="find-list">
-            <div class="find"><div class="dot dg"></div><span>PCIe lane fault isolated — 4th GPU dropout confirmed</span></div>
-            <div class="find"><div class="dot db"></div><span>Max-Q SKU recommended for power envelope fit</span></div>
-            <div class="find"><div class="dot dg"></div><span>Full build spec completed for refresh</span></div>
-            <div class="find"><div class="dot dg"></div><span>Ready to build as early as tomorrow</span></div>
+            <div class="find"><div class="dot dg"></div><span>4th GPU dropout traced to PSU undervolt under full load</span></div>
+            <div class="find"><div class="dot db"></div><span>Max-Q SKU reduces per-GPU TDP — fits revised power budget</span></div>
+            <div class="find"><div class="dot dg"></div><span>Full Blackwell refresh spec completed</span></div>
+            <div class="find"><div class="dot dg"></div><span>Ready to build on client commitment</span></div>
           </div>
         </div>
       </div>
@@ -215,34 +215,35 @@
     <div class="pc consulting">
       <div class="pc-head">
         <div class="pc-head-row">
-          <div class="pc-title">LLM inference platform — principal engineer</div>
-          <div class="badges"><span class="bdg bdg-consult">Consulting</span></div>
+          <div class="pc-title">LLM agent dev workstation — principal engineer</div>
+          <div class="badges">
+            <span class="bdg bdg-consult">Consulting</span>
+            <span class="bdg bdg-built">Spec doc delivered</span>
+          </div>
         </div>
-        <div class="pc-sub">MacBook Pro 128GB vs RTX PRO 6000 · LLM 24/7 local inference</div>
+        <div class="pc-sub">5-platform trade study · Mac Studio M3 Ultra vs RTX 5090 · Bay Area</div>
       </div>
       <div class="pc-body">
         <div>
-          <div class="pc-sl">Client situation</div>
+          <div class="pc-sl">Engagement</div>
           <div class="spec-list">
-            <div class="spec-row"><span class="spec-k">Goal</span><span class="spec-v">24/7 local LLM</span></div>
-            <div class="spec-row"><span class="spec-k">Current plan</span><span class="spec-v">MacBook Pro 128GB</span></div>
-            <div class="spec-row"><span class="spec-k">Budget</span><span class="spec-v">~$5,500</span></div>
-            <div class="spec-row"><span class="spec-k">Constraint</span><span class="spec-v">Cost-sensitive</span></div>
+            <div class="spec-row"><span class="spec-k">Initial plan</span><span class="spec-v">Mac Studio M3 Ultra</span></div>
+            <div class="spec-row"><span class="spec-k">Outcome</span><span class="spec-v">RTX 5090 · ~$7,750</span></div>
+            <div class="spec-row"><span class="spec-k">Upgrade path</span><span class="spec-v">RTX PRO 6000 Blackwell</span></div>
           </div>
         </div>
         <div>
           <div class="pc-sl">Key findings</div>
           <div class="find-list">
-            <div class="find"><div class="dot dr"></div><span>Unified RAM runs 70B at ~8–15 tok/s — slower than you read</span></div>
-            <div class="find"><div class="dot dr"></div><span>No CUDA — vLLM and TensorRT-LLM unavailable</span></div>
-            <div class="find"><div class="dot db"></div><span>RTX PRO 6000 hits 34–90 tok/s — up to 6× faster</span></div>
-            <div class="find"><div class="dot dp"></div><span>Budget-fit alternatives under evaluation</span></div>
+            <div class="find"><div class="dot dr"></div><span>Mac unified RAM: ~8–15 tok/s on 70B — no CUDA</span></div>
+            <div class="find"><div class="dot dg"></div><span>RTX 5090: ~85 tok/s on 70B Q4 fully in VRAM</span></div>
+            <div class="find"><div class="dot db"></div><span>Spec doc sold & delivered · credited toward build</span></div>
           </div>
         </div>
       </div>
       <div class="pc-status">
-        <div class="status-dot status-amber"></div>
-        <div class="status-text">Consultation in progress · Recommendation pending</div>
+        <div class="status-dot status-green"></div>
+        <div class="status-text">Spec document delivered · Build decision pending</div>
       </div>
     </div>
  
@@ -257,11 +258,12 @@
       <div class="gc-body">
         <div class="gc-name">DAWN</div>
         <div class="gc-price">~$2,000</div>
-        <div class="gc-tagline">Raw essentials · 1080p 120+ FPS</div>
+        <div class="gc-tagline">Smooth 1080p high-refresh gaming</div>
         <div class="gc-items">
-          <div class="gc-item">32GB DDR5 RAM</div>
-          <div class="gc-item">1TB NVMe SSD</div>
-          <div class="gc-item">Mid-range GPU · validated</div>
+          <div class="gc-item">Balanced gaming CPU + mid-range GPU</div>
+          <div class="gc-item">32GB DDR5 memory</div>
+          <div class="gc-item">1TB NVMe SSD storage</div>
+          <div class="gc-item">Stress tested · OS + drivers installed</div>
         </div>
       </div>
     </div>
@@ -269,13 +271,14 @@
     <div class="gc">
       <img class="gc-img" src="https://via.placeholder.com/400x533/111111/ffffff?text=DUSK+Build" alt="DUSK build">
       <div class="gc-body">
-        <div class="gc-name">DUSK</div>
+        <div class="gc-name">DUSK <span style="font-size:11px;font-weight:500;color:#1a73e8;font-style:italic">Most popular</span></div>
         <div class="gc-price">~$3,000</div>
-        <div class="gc-tagline">Max value · 1440p 100+ FPS</div>
+        <div class="gc-tagline">High-refresh 1440p performance</div>
         <div class="gc-items">
-          <div class="gc-item">12–16GB VRAM GPU</div>
-          <div class="gc-item">12–24 core/thread CPU</div>
-          <div class="gc-item">Most popular gaming tier</div>
+          <div class="gc-item">High-performance CPU (X3D class) + 12–16GB VRAM GPU</div>
+          <div class="gc-item">32GB DDR5 memory</div>
+          <div class="gc-item">Fast NVMe SSD storage</div>
+          <div class="gc-item">Stress tested · OS + drivers installed</div>
         </div>
       </div>
     </div>
@@ -283,13 +286,14 @@
     <div class="gc">
       <img class="gc-img" src="https://via.placeholder.com/400x533/111111/ffffff?text=ECLIPSE+Build" alt="ECLIPSE build">
       <div class="gc-body">
-        <div class="gc-name">ECLIPSE</div>
+        <div class="gc-name">ECLIPSE <span style="font-size:11px;font-weight:500;color:#888;font-style:italic">Flagship</span></div>
         <div class="gc-price">~$4,000</div>
-        <div class="gc-tagline">Next gen · 4K ultra / VR-ready</div>
+        <div class="gc-tagline">Maximum performance · 1440p max / 4K-ready</div>
         <div class="gc-items">
-          <div class="gc-item">RTX 5090 · 20–24GB VRAM</div>
-          <div class="gc-item">Liquid cooling standard</div>
-          <div class="gc-item">Showcase-grade build quality</div>
+          <div class="gc-item">Flagship GPU (5080/5090 class) + high-end CPU</div>
+          <div class="gc-item">32–64GB DDR5 memory · liquid cooling</div>
+          <div class="gc-item">High-speed NVMe storage</div>
+          <div class="gc-item">Stress tested · OS + drivers installed</div>
         </div>
       </div>
     </div>
