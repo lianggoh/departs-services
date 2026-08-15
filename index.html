@@ -4,160 +4,271 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DeParts Systems — Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;padding:32px 24px 120px}
-  .wrap{max-width:1200px;margin:0 auto}
-  .sl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:14px}
-  .divider{border:none;border-top:1px solid #f0f0f0;margin:28px 0}
- 
-  /* Steps */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
-  .step{background:#f9f9f9;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
-  .step-num{width:24px;height:24px;border-radius:50%;background:#fff;border:1px solid #e0e0e0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#111;flex-shrink:0}
-  .step-title{font-size:13px;font-weight:600;color:#111}
-  .step-desc{font-size:12px;color:#555;line-height:1.6;flex:1}
-  .pill{display:inline-block;margin-top:4px;font-size:10px;padding:2px 8px;border-radius:99px;font-weight:500;width:fit-content}
-  .pill-green{background:#e8f5e9;color:#2e7d32}
-  .pill-amber{background:#fff8e1;color:#f57c00}
- 
-  /* Tiers */
-  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
-  .tier-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff;display:flex;flex-direction:column}
-  .tier-card.featured{border:2px solid #1a73e8}
-  .tier-card.premium{border:1px solid #ddd;background:#fafafa}
-  .tier-span2{grid-column:span 2}
-  .tier-name{font-size:13px;font-weight:600;color:#111;margin-bottom:4px}
-  .tier-price-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-  .tier-price{font-size:15px;font-weight:600;color:#111}
-  .tier-badge{font-size:10px;padding:2px 8px;border-radius:99px;background:#e8f0fe;color:#1a73e8;font-weight:500}
-  .tier-tagline{font-size:11px;color:#888;margin-bottom:10px;font-style:italic}
-  .tier-items{display:flex;flex-direction:column;gap:4px;flex:1}
-  .tier-item{font-size:12px;color:#444;line-height:1.5;display:flex;gap:6px}
-  .tier-item::before{content:'—';color:#bbb;flex-shrink:0}
-  .tier-roi{margin-top:10px;padding-top:10px;border-top:1px solid #f0f0f0;font-size:12px;font-weight:600;color:#2e7d32}
-  .tier-roi.blue{color:#1a73e8}
- 
-  /* Gaming */
-  .gaming-line{border:1px solid #e8e8e8;border-radius:12px;padding:14px 18px;font-size:13px;color:#444;line-height:1.6;margin-bottom:6px}
-  .gaming-line strong{color:#111;font-weight:600}
-  .service-note{font-size:12px;color:#888;font-style:italic;text-align:center;padding:8px 0;line-height:1.6}
- 
-  /* Support */
-  .support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
-  .support-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff;display:flex;flex-direction:column}
-  .support-card.mid{border:2px solid #1a73e8}
-  .support-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
-  .support-name{font-size:14px;font-weight:600;color:#111}
-  .support-price{font-size:16px;font-weight:600;color:#111}
-  .support-period{font-size:11px;color:#888;font-weight:400}
-  .support-tagline{font-size:11px;color:#888;font-style:italic;margin-bottom:10px}
-  .support-items{display:flex;flex-direction:column;gap:5px;flex:1}
-  .support-item{font-size:12px;color:#444;display:flex;gap:6px;line-height:1.5}
-  .support-item::before{content:'—';color:#bbb;flex-shrink:0}
-  .support-note{font-size:12px;color:#888;font-style:italic;text-align:center;padding:8px 0;line-height:1.6}
- 
-  /* Case study */
-  .case-study{border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;margin-bottom:6px}
-  .cs-head{background:#f8f9ff;padding:14px 18px;border-bottom:1px solid #e8e8e8}
-  .cs-label{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#1a73e8;margin-bottom:4px}
-  .cs-title{font-size:13px;font-weight:600;color:#111;font-style:italic}
-  .cs-body{padding:16px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .cs-key{font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
-  .cs-val{font-size:13px;color:#444;line-height:1.5}
-  .cs-result{font-size:13px;font-weight:600;color:#2e7d32;line-height:1.5}
- 
-  /* Comparison — desktop side by side, mobile stacked with vs divider */
-  .comp-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
-  .comp-head{font-size:11px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;text-align:center}
-  .comp-head.win{color:#1a73e8}
-  .comp-col-items{display:flex;flex-direction:column;gap:8px}
-  .comp-item{border:1px solid #e8e8e8;border-radius:10px;padding:10px 14px}
-  .comp-item.win-item{border-color:#1a73e8;background:#f8f9ff}
-  .comp-cat{font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px}
-  .comp-val{font-size:13px;color:#888}
-  .comp-val.win{color:#111;font-weight:600}
-  /* Mobile vs divider — hidden on desktop */
-  .comp-vs{display:none;text-align:center;font-size:11px;font-weight:600;color:#aaa;letter-spacing:0.08em;text-transform:uppercase;padding:4px 0}
- 
-  /* Pricing */
-  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
-  .price-card{border:1px solid #e8e8e8;border-radius:12px;padding:16px;background:#fff;display:flex;flex-direction:column}
-  .price-card.feat{border:2px solid #1a73e8}
-  .price-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
-  .price-name{font-size:14px;font-weight:600;color:#111}
-  .price-amt{font-size:20px;font-weight:600;color:#111}
-  .price-bdg{font-size:10px;padding:2px 8px;border-radius:99px;background:#e8f0fe;color:#1a73e8;display:inline-block;margin-top:10px;font-weight:500;width:fit-content}
-  .price-note{font-size:12px;color:#888;margin-bottom:8px}
-  .price-items{display:flex;flex-direction:column;gap:4px;flex:1}
-  .price-item{font-size:12px;color:#444;display:flex;gap:6px}
-  .price-item::before{content:'—';color:#bbb;flex-shrink:0}
-  .payment-note{font-size:12px;color:#888;text-align:center}
- 
-  /* CTA inline centered with generous scroll buffer */
-  .cta-block{padding:28px 0 0;border-top:1px solid #f0f0f0;margin-top:28px;text-align:center;padding-bottom:0px}
-  .cta-block p{font-size:14px;color:#555;margin-bottom:12px}
-  .tap-btn{display:inline-block;background:#111;border-radius:10px;padding:14px 40px;font-size:15px;font-weight:600;color:#fff;text-decoration:none}
- 
-  /* Desktop font size upgrades */
-  @media(min-width:641px){
-    .sl{font-size:12px}
-    .step-num{font-size:13px;width:28px;height:28px}
-    .step-title{font-size:15px}
-    .step-desc{font-size:14px}
-    .pill{font-size:12px}
-    .tier-name{font-size:15px}
-    .tier-price{font-size:17px}
-    .tier-badge{font-size:11px}
-    .tier-tagline{font-size:13px}
-    .tier-item{font-size:14px}
-    .tier-roi{font-size:14px}
-    .gaming-line{font-size:15px}
-    .service-note{font-size:13px}
-    .support-name{font-size:16px}
-    .support-price{font-size:18px}
-    .support-period{font-size:13px}
-    .support-tagline{font-size:13px}
-    .support-item{font-size:14px}
-    .support-note{font-size:13px}
-    .cs-label{font-size:11px}
-    .cs-title{font-size:15px}
-    .cs-key{font-size:11px}
-    .cs-val{font-size:14px}
-    .cs-result{font-size:14px}
-    .comp-head{font-size:13px}
-    .comp-cat{font-size:11px}
-    .comp-val{font-size:14px}
-    .price-name{font-size:16px}
-    .price-amt{font-size:22px}
-    .price-bdg{font-size:11px}
-    .price-note{font-size:13px}
-    .price-item{font-size:14px}
-    .payment-note{font-size:13px}
-    .cta-block p{font-size:16px}
-    .tap-btn{font-size:16px}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #eef1f7;
+    --card: #e8ecf5;
+    --card-hover: #e2e7f2;
+    --ink: #0d0f14;
+    --ink-mid: #3a3f52;
+    --ink-muted: #6b7280;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --divider: #d4d9e8;
+    --white: #ffffff;
+    --green: #166534;
+    --green-bg: #dcfce7;
   }
- 
-  /* Mobile */
-  @media(max-width:640px){
-    body{padding:20px 16px 100px}
-    .steps{grid-template-columns:1fr}
-    .tier-grid{grid-template-columns:1fr}
-    .tier-span2{grid-column:span 1}
-    .support-grid{grid-template-columns:1fr}
-    .cs-body{grid-template-columns:1fr}
-    /* Comparison stacks vertically with vs label */
-    .comp-wrap{grid-template-columns:1fr;gap:4px}
-    .comp-vs{display:block}
-    .price-grid{grid-template-columns:1fr}
-    .tap-btn{display:block;width:100%;text-align:center}
-    .cta-block{padding-bottom:80px}
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    padding: 48px 32px 120px;
+    min-height: 100vh;
+  }
+
+  .wrap { max-width: 1280px; margin: 0 auto; }
+
+  /* ── Wordmark ── */
+  .wordmark {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px; color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 48px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .wordmark-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+
+  /* ── Section label ── */
+  .sl {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-muted); margin-bottom: 20px;
+  }
+
+  .divider { border: none; border-top: 1px solid var(--divider); margin: 40px 0; }
+
+  /* ── How it works — stacked mobile, 4-col desktop ── */
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    margin-bottom: 8px;
+  }
+  @media(min-width: 760px) {
+    .steps { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  }
+
+  .step {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--white); border: 1px solid var(--divider);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600; color: var(--ink);
+    flex-shrink: 0;
+  }
+  .step-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .step-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.65; flex: 1; }
+  .pill {
+    display: inline-block;
+    font-size: 10px; font-weight: 600;
+    padding: 3px 10px; border-radius: 99px;
+    width: fit-content; letter-spacing: 0.02em;
+  }
+  .pill-green { background: var(--green-bg); color: var(--green); }
+  .pill-blue { background: var(--blue-light); color: var(--blue); }
+
+  /* ── Build tiers ── */
+  .tiers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  @media(min-width: 760px) {
+    .tiers { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .tier.gaming { grid-column: span 2; }
+  }
+
+  .tier {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    cursor: default;
+    transition: background 0.15s;
+    display: flex; flex-direction: column;
+  }
+  .tier:hover { background: var(--card-hover); }
+  .tier.featured { background: var(--ink); }
+  .tier.featured:hover { background: #1a1d26; }
+
+  .tier-eyebrow {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-muted); margin-bottom: 10px;
+  }
+  .tier.featured .tier-eyebrow { color: #6b7aff; }
+
+  .tier-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px; line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 10px;
+  }
+  .tier.featured .tier-title { color: var(--white); }
+
+  .tier-price-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .tier-price { font-size: 16px; font-weight: 600; color: var(--blue); }
+  .tier.featured .tier-price { color: #818cf8; }
+  .tier-badge {
+    font-size: 10px; font-weight: 600;
+    padding: 3px 10px; border-radius: 99px;
+    background: var(--blue-light); color: var(--blue);
+    letter-spacing: 0.02em;
+  }
+  .tier.featured .tier-badge { background: #312e81; color: #a5b4fc; }
+
+  .tier-desc {
+    font-size: 13px; color: var(--ink-mid); line-height: 1.65;
+    margin-bottom: 16px; flex: 1;
+  }
+  .tier.featured .tier-desc { color: #94a3b8; }
+
+  .tier-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .tag {
+    font-size: 11px; font-weight: 500;
+    padding: 4px 11px; border-radius: 99px;
+    background: var(--white); color: var(--ink-mid);
+    border: 1px solid var(--divider);
+  }
+  .tier.featured .tag { background: #1e2235; color: #94a3b8; border-color: #2d3148; }
+
+  /* ── Comparison ── */
+  .comp-wrap {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; margin-bottom: 8px;
+  }
+  .comp-col { display: flex; flex-direction: column; gap: 6px; }
+  .comp-head {
+    font-size: 11px; font-weight: 600;
+    color: var(--ink-muted); text-transform: uppercase;
+    letter-spacing: 0.07em; margin-bottom: 2px; text-align: center;
+  }
+  .comp-head.win { color: var(--blue); }
+  .comp-item { background: var(--card); border-radius: 10px; padding: 10px 14px; }
+  .comp-item.win-item { background: var(--blue-light); }
+  .comp-cat {
+    font-size: 10px; font-weight: 600; color: var(--ink-muted);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px;
+  }
+  .comp-val { font-size: 13px; color: var(--ink-muted); }
+  .comp-val.win { color: var(--ink); font-weight: 600; }
+
+  /* ── Support plans ── */
+  .support-grid {
+    display: grid; grid-template-columns: 1fr;
+    gap: 8px; margin-bottom: 8px;
+  }
+  @media(min-width: 760px) { .support-grid { grid-template-columns: repeat(3,1fr); } }
+
+  .support-card {
+    background: var(--card); border-radius: 14px;
+    padding: 18px; display: flex; flex-direction: column;
+  }
+  .support-card.mid { background: var(--ink); }
+  .support-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .support-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .support-card.mid .support-name { color: var(--white); }
+  .support-price { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .support-card.mid .support-price { color: var(--white); }
+  .support-period { font-size: 11px; color: var(--ink-muted); font-weight: 400; }
+  .support-card.mid .support-period { color: #94a3b8; }
+  .support-tagline { font-size: 11px; color: var(--ink-muted); font-style: italic; margin-bottom: 12px; line-height: 1.5; }
+  .support-card.mid .support-tagline { color: #94a3b8; }
+  .support-items { display: flex; flex-direction: column; gap: 5px; flex: 1; }
+  .support-item { font-size: 12px; color: var(--ink-mid); display: flex; gap: 6px; line-height: 1.5; }
+  .support-item::before { content: '—'; color: var(--divider); flex-shrink: 0; }
+  .support-card.mid .support-item { color: #94a3b8; }
+  .support-card.mid .support-item::before { color: #2d3148; }
+  .support-note { font-size: 12px; color: var(--ink-muted); font-style: italic; text-align: center; padding: 10px 0; line-height: 1.6; }
+
+  /* ── Pricing ── */
+  .price-grid {
+    display: grid; grid-template-columns: 1fr;
+    gap: 8px; margin-bottom: 14px;
+  }
+  @media(min-width: 760px) { .price-grid { grid-template-columns: repeat(3,1fr); } }
+
+  .price-card {
+    background: var(--card); border-radius: 14px;
+    padding: 18px; display: flex; flex-direction: column;
+  }
+  .price-card.feat { background: var(--ink); }
+  .price-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .price-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .price-card.feat .price-name { color: var(--white); }
+  .price-amt { font-size: 18px; font-weight: 600; color: var(--ink); }
+  .price-card.feat .price-amt { color: var(--white); }
+  .price-note { font-size: 12px; color: var(--ink-muted); margin-bottom: 10px; }
+  .price-card.feat .price-note { color: #94a3b8; }
+  .price-items { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .price-item { font-size: 12px; color: var(--ink-mid); display: flex; gap: 6px; line-height: 1.5; }
+  .price-item::before { content: '—'; color: var(--divider); flex-shrink: 0; }
+  .price-card.feat .price-item { color: #94a3b8; }
+  .price-card.feat .price-item::before { color: #2d3148; }
+  .price-bdg {
+    display: inline-block; margin-top: 12px;
+    font-size: 10px; font-weight: 600;
+    padding: 3px 10px; border-radius: 99px;
+    background: #312e81; color: #a5b4fc; width: fit-content;
+  }
+  .payment-note { font-size: 12px; color: var(--ink-muted); text-align: center; }
+
+  /* ── CTA ── */
+  .cta-block {
+    padding: 36px 0 0;
+    border-top: 1px solid var(--divider);
+    margin-top: 40px; text-align: center;
+  }
+  .cta-block p { font-size: 14px; color: var(--ink-mid); margin-bottom: 16px; }
+  .tap-btn {
+    display: inline-block;
+    background: var(--ink); border-radius: 12px;
+    padding: 16px 48px;
+    font-size: 15px; font-weight: 600;
+    color: var(--white); text-decoration: none;
+    transition: background 0.15s;
+  }
+  .tap-btn:hover { background: #1a1d26; }
+
+  @media(max-width: 640px) {
+    body { padding: 32px 16px 100px; }
+    .tap-btn { display: block; width: 100%; text-align: center; }
+    .cta-block { padding-bottom: 80px; }
+    .comp-wrap { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
- 
+
+  <div class="wordmark">
+    <div class="wordmark-dot"></div>
+    DeParts Systems
+  </div>
+
+  <!-- HOW IT WORKS -->
   <div class="sl">How it works</div>
   <div class="steps">
     <div class="step">
@@ -168,14 +279,14 @@
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <div class="step-title">Build spec document</div>
-      <div class="step-desc">Written recommendation with projections, compatibility, risk flags, and 2–3 tiered options. Our reasoning — not just a parts list.</div>
-      <span class="pill pill-amber">$150–300 · credited toward build</span>
+      <div class="step-title">Spec document</div>
+      <div class="step-desc">Written recommendation with full BOM, performance projections, compatibility, and risk flags. Our reasoning — not just a parts list.</div>
+      <span class="pill pill-blue">$150–300 · credited toward build</span>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-title">Build & validation</div>
-      <div class="step-desc">Full assembly, thermal validation, and stability benchmarks. Signed validation report before it ships.</div>
+      <div class="step-desc">Full assembly, thermal validation, and stability benchmarks under your actual workload. Signed validation report before it ships.</div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
@@ -183,77 +294,85 @@
       <div class="step-desc">Free Bay Area delivery or national shipping. 30-day full warranty + lifetime labor warranty. Direct text access post-delivery.</div>
     </div>
   </div>
- 
+
   <hr class="divider">
-  <div class="sl">Professional builds</div>
-  <div class="tier-grid">
-    <div class="tier-card">
-      <div class="tier-name">Media / Video production</div>
-      <div class="tier-price-row"><span class="tier-price">$7,000+</span></div>
-      <div class="tier-tagline">Adobe, DaVinci Resolve, 4K–8K workflows</div>
-      <div class="tier-items">
-        <div class="tier-item">Dual RTX 4080/4090 with NVENC acceleration</div>
-        <div class="tier-item">Threadripper for encoding & exports</div>
-        <div class="tier-item">4–8TB NVMe scratch storage</div>
-      </div>
-      <div class="tier-roi">Deliver projects 2–3× faster</div>
-    </div>
-    <div class="tier-card">
-      <div class="tier-name">CAD / Engineering</div>
-      <div class="tier-price-row"><span class="tier-price">$8,000+</span></div>
-      <div class="tier-tagline">SolidWorks, AutoCAD, ANSYS, Revit</div>
-      <div class="tier-items">
-        <div class="tier-item">RTX A5000/A6000 with certified ISV drivers</div>
-        <div class="tier-item">Xeon/Threadripper for simulation</div>
-        <div class="tier-item">ECC RAM for data integrity</div>
-      </div>
-      <div class="tier-roi">Reduce simulation times 30–40%</div>
-    </div>
-    <div class="tier-card">
-      <div class="tier-name">3D Rendering / VFX</div>
-      <div class="tier-price-row"><span class="tier-price">$10,000+</span></div>
-      <div class="tier-tagline">Blender, Houdini, Arnold, Unreal Engine</div>
-      <div class="tier-items">
-        <div class="tier-item">Multi-GPU for GPU render farms</div>
-        <div class="tier-item">High VRAM for complex scene geometry</div>
-        <div class="tier-item">NVMe RAID for large asset pipelines</div>
-      </div>
-      <div class="tier-roi">Cut render times 50–70%</div>
-    </div>
-    <div class="tier-card featured">
-      <div class="tier-name">AI / Machine learning</div>
+
+  <!-- BUILD TIERS -->
+  <div class="sl">What we build</div>
+  <div class="tiers">
+
+    <div class="tier">
+      <div class="tier-eyebrow">Flagship</div>
+      <div class="tier-title">Advanced AI &amp; GPU Workstations</div>
       <div class="tier-price-row">
-        <span class="tier-price">$12,000+</span>
+        <span class="tier-price">$7,000+</span>
+      </div>
+      <div class="tier-desc">Local AI, LLM inference, ML training, and CUDA development. High-VRAM NVIDIA professional GPUs configured around your exact workload and power envelope.</div>
+      <div class="tier-tags">
+        <span class="tag">LLM inference</span>
+        <span class="tag">ML training</span>
+        <span class="tag">Computer vision</span>
+      </div>
+    </div>
+
+    <div class="tier featured">
+      <div class="tier-eyebrow">Professional</div>
+      <div class="tier-title">Professional Workstations</div>
+      <div class="tier-price-row">
+        <span class="tier-price">$5,000+</span>
         <span class="tier-badge">Most requested</span>
       </div>
-      <div class="tier-tagline">LLM inference, fine-tuning, generative AI</div>
-      <div class="tier-items">
-        <div class="tier-item">RTX PRO 6000 Blackwell or multi-GPU config</div>
-        <div class="tier-item">Threadripper PRO · up to 256GB ECC RAM</div>
-        <div class="tier-item">70B–405B+ LLM inference capable</div>
-        <div class="tier-item">TensorFlow, PyTorch, vLLM ready</div>
+      <div class="tier-desc">High-end Ryzen 9 and Intel Core Ultra systems for engineering, creative, and development workloads. Consumer platform reliability with workstation-grade performance.</div>
+      <div class="tier-tags">
+        <span class="tag">CAD &amp; simulation</span>
+        <span class="tag">3D rendering</span>
+        <span class="tag">VFX &amp; Houdini</span>
       </div>
-      <div class="tier-roi">Cut AWS/Azure spend up to 60%</div>
     </div>
-    <div class="tier-card premium tier-span2">
-      <div class="tier-name">Custom / Bespoke</div>
-      <div class="tier-price-row"><span class="tier-price">$15,000+</span></div>
-      <div class="tier-tagline">One-of-a-kind — engineered and finished to spec</div>
-      <div class="tier-items">
-        <div class="tier-item">Custom hardline liquid cooling loops</div>
-        <div class="tier-item">Bespoke cable sleeving & aesthetic direction</div>
-        <div class="tier-item">Any workload — rendering, AI, simulation</div>
-        <div class="tier-item">Full validation report included</div>
+
+    <div class="tier gaming">
+      <div class="tier-eyebrow">Enthusiast</div>
+      <div class="tier-title">4K Gaming &amp; Enthusiast</div>
+      <div class="tier-price-row">
+        <span class="tier-price">$2,500 – $6,000</span>
       </div>
-      <div class="tier-roi blue">Text us your vision</div>
+      <div class="tier-desc">Premium custom gaming systems built for high-refresh, high-res performance. Same validation process as every build — because your hardware deserves it too.</div>
+      <div class="tier-tags">
+        <span class="tag">AAA gaming</span>
+        <span class="tag">Streaming</span>
+        <span class="tag">Competitive esports</span>
+      </div>
     </div>
+
   </div>
-  <div class="gaming-line">
-    <strong>Gaming & enthusiast</strong> — DAWN (~$2,000), DUSK (~$3,000), ECLIPSE (~$4,000). Updated for current DDR5 and NVMe pricing. Same validation process, every build.
-  </div>
-  <div class="service-note">Also available: diagnostics, system upgrades, and rebuild consultations — text us your situation for a custom quote.</div>
- 
+  <div class="support-note" style="margin-top:10px;">Also available: GPU upgrades, system diagnostics, rebuild consultations, and hardware resale. Text us your situation.</div>
+
   <hr class="divider">
+
+  <!-- WHY NOT DELL / HP -->
+  <div class="sl">Why not Dell or HP?</div>
+  <div class="comp-wrap">
+    <div class="comp-col">
+      <div class="comp-head">Dell / HP</div>
+      <div class="comp-item"><div class="comp-cat">Price</div><div class="comp-val">$15–20K</div></div>
+      <div class="comp-item"><div class="comp-cat">Lead time</div><div class="comp-val">3–8 weeks</div></div>
+      <div class="comp-item"><div class="comp-cat">Config</div><div class="comp-val">Preset options</div></div>
+      <div class="comp-item"><div class="comp-cat">Support</div><div class="comp-val">Call centers</div></div>
+      <div class="comp-item"><div class="comp-cat">Testing</div><div class="comp-val">Standardized</div></div>
+    </div>
+    <div class="comp-col">
+      <div class="comp-head win">DeParts Systems</div>
+      <div class="comp-item win-item"><div class="comp-cat">Price</div><div class="comp-val win">$7–12K (higher perf/$)</div></div>
+      <div class="comp-item win-item"><div class="comp-cat">Lead time</div><div class="comp-val win">3–4 weeks typical</div></div>
+      <div class="comp-item win-item"><div class="comp-cat">Config</div><div class="comp-val win">Fully tailored</div></div>
+      <div class="comp-item win-item"><div class="comp-cat">Support</div><div class="comp-val win">Direct engineer access</div></div>
+      <div class="comp-item win-item"><div class="comp-cat">Testing</div><div class="comp-val win">Workload-specific validation</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SUPPORT PLANS -->
   <div class="sl">Protect your investment</div>
   <div class="support-grid">
     <div class="support-card">
@@ -276,7 +395,7 @@
       <div class="support-tagline">For teams and founders who depend on uptime</div>
       <div class="support-items">
         <div class="support-item">Everything in Basic</div>
-        <div class="support-item">Annual in-person health check (Bay Area) or remote audit</div>
+        <div class="support-item">Annual in-person health check (Bay Area)</div>
         <div class="support-item">Hardware upgrade consultation included</div>
         <div class="support-item">10% discount on parts for upgrades</div>
       </div>
@@ -291,62 +410,15 @@
         <div class="support-item">Everything in Standard</div>
         <div class="support-item">Quarterly health checks</div>
         <div class="support-item">Priority scheduling for all service work</div>
-        <div class="support-item">Hardware refresh planning & sourcing</div>
+        <div class="support-item">Hardware refresh planning &amp; sourcing</div>
       </div>
     </div>
   </div>
-  <div class="support-note">Hardware refresh programs quoted separately. All plans include manufacturer claim management on your behalf. Text us to discuss.</div>
- 
+  <div class="support-note">All plans include manufacturer claim management on your behalf. Text us to discuss.</div>
+
   <hr class="divider">
-  <div class="sl">Client case study</div>
-  <div class="case-study">
-    <div class="cs-head">
-      <div class="cs-label">Consulting engagement</div>
-      <div class="cs-title">Bay Area AI researcher — LLM inference platform selection</div>
-    </div>
-    <div class="cs-body">
-      <div>
-        <div class="cs-key">Situation</div>
-        <div class="cs-val">Client planned a Mac Pro M5 Max 128GB at ~$5.5K for running the largest available open-source LLMs locally.</div>
-      </div>
-      <div>
-        <div class="cs-key">Finding</div>
-        <div class="cs-val">Mac unified RAM runs 70B models at ~8–15 tok/s — slower than you read — while dedicated VRAM hits 34–90 tok/s with full CUDA support.</div>
-      </div>
-      <div>
-        <div class="cs-key">Outcome</div>
-        <div class="cs-result">Redirected to 1-2× RTX PRO 6000 Blackwell — 4–6× faster inference. Fundamental architecture mistake avoided before spending.</div>
-      </div>
-    </div>
-  </div>
- 
-  <hr class="divider">
-  <div class="sl">Why not Dell or HP?</div>
-  <div class="comp-wrap">
-    <div>
-      <div class="comp-head">Dell / HP</div>
-      <div class="comp-col-items">
-        <div class="comp-item"><div class="comp-cat">Price</div><div class="comp-val">$15–20K</div></div>
-        <div class="comp-item"><div class="comp-cat">Lead time</div><div class="comp-val">3–8 weeks (varying)</div></div>
-        <div class="comp-item"><div class="comp-cat">Configuration</div><div class="comp-val">Preset configs</div></div>
-        <div class="comp-item"><div class="comp-cat">Support</div><div class="comp-val">Call centers</div></div>
-        <div class="comp-item"><div class="comp-cat">Testing</div><div class="comp-val">Standardized</div></div>
-      </div>
-    </div>
-    <div class="comp-vs">— vs —</div>
-    <div>
-      <div class="comp-head win">DeParts Systems</div>
-      <div class="comp-col-items">
-        <div class="comp-item win-item"><div class="comp-cat">Price</div><div class="comp-val win">$7–12K (higher perf/$)</div></div>
-        <div class="comp-item win-item"><div class="comp-cat">Lead time</div><div class="comp-val win">3–4 weeks typical</div></div>
-        <div class="comp-item win-item"><div class="comp-cat">Configuration</div><div class="comp-val win">Fully tailored</div></div>
-        <div class="comp-item win-item"><div class="comp-cat">Support</div><div class="comp-val win">Direct engineer access</div></div>
-        <div class="comp-item win-item"><div class="comp-cat">Testing</div><div class="comp-val win">Workload-specific validation</div></div>
-      </div>
-    </div>
-  </div>
- 
-  <hr class="divider">
+
+  <!-- PRICING -->
   <div class="sl">Pricing</div>
   <div class="price-grid">
     <div class="price-card">
@@ -360,12 +432,12 @@
     </div>
     <div class="price-card feat">
       <div class="price-head"><span class="price-name">Full build</span><span class="price-amt">Custom</span></div>
-      <div class="price-note">Based on hardware & complexity</div>
+      <div class="price-note">Based on hardware &amp; complexity</div>
       <div class="price-items">
-        <div class="price-item">Sourcing & assembly</div>
+        <div class="price-item">Sourcing &amp; assembly</div>
         <div class="price-item">Full validation suite</div>
         <div class="price-item">Signed validation report</div>
-        <div class="price-item">30-day full warranty + lifetime labor</div>
+        <div class="price-item">30-day full + lifetime labor warranty</div>
       </div>
       <span class="price-bdg">Most common</span>
     </div>
@@ -375,17 +447,18 @@
       <div class="price-items">
         <div class="price-item">Full BOM with reasoning</div>
         <div class="price-item">Performance projections</div>
-        <div class="price-item">Risk & liability notes</div>
+        <div class="price-item">Risk &amp; compatibility notes</div>
       </div>
     </div>
   </div>
   <div class="payment-note">We accept Zelle, Venmo, bank transfer, and PayPal.</div>
- 
+
+  <!-- CTA -->
   <div class="cta-block">
     <p>Ready to start? No commitment.</p>
     <a class="tap-btn" href="sms:5109996938">Text (510) 999-6938</a>
   </div>
- 
+
 </div>
 </body>
 </html>
