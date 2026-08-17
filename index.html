@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DeParts Systems - Services</title>
+<title>DeParts Systems. Services</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -164,7 +164,7 @@ body {
 }
 .btn-ghost:hover { border-color: #3d4258; color: var(--white); }
 
-/* Hero right - PC visual placeholder with telemetry */
+/* Hero right. PC visual placeholder with telemetry */
 .hero-right {
   position: relative; z-index: 2;
   display: flex; justify-content: flex-end; align-items: center;
@@ -502,18 +502,9 @@ body {
 }
 .promise-card:first-child {
   grid-column: span 2;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 28px;
-}
-.promise-card:first-child .promise-icon {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-}
-.promise-card:first-child .promise-desc {
-  max-width: 520px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 .promise-card {
   background: var(--gray-card); border-radius: 16px;
@@ -670,7 +661,8 @@ body {
   .stats-strip { padding: 16px 32px; gap: 0; }
   .ai-showcase { grid-template-columns: 1fr; padding: 40px 32px; gap: 40px; }
   .promise-grid { grid-template-columns: 1fr; }
-  .promise-card:first-child { grid-column: span 1 !important; flex-direction: column; gap: 12px; }
+  .promise-card:first-child { grid-column: 1 / -1 !important; }
+  .promise-card:first-child { grid-column: 1 / -1 !important; flex-direction: column; gap: 12px; }
   .lower-tiers { grid-template-columns: 1fr; }
   .promise-grid { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
@@ -787,8 +779,8 @@ body {
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-title">Spec document</div>
-      <div class="step-desc">Written recommendation with full BOM, performance projections, compatibility, and risk flags. Our reasoning - not just a parts list.</div>
-      <span class="pill pill-blue">$150–300 · credited toward build</span>
+      <div class="step-desc">Written recommendation with full BOM, performance projections, compatibility, and risk flags. Our reasoning, not just a parts list.</div>
+      <span class="pill pill-blue">$150–300, credited toward build</span>
     </div>
     <div class="step">
       <div class="step-num">3</div>
@@ -798,7 +790,7 @@ body {
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-title">Delivery & support</div>
-      <div class="step-desc">Free Bay Area delivery or national shipping. 30-day full warranty + lifetime labor warranty. Direct text access post-delivery.</div>
+      <div class="step-desc">Free Bay Area delivery or national shipping. 30-day full warranty plus lifetime labor warranty. Direct text access post-delivery.</div>
     </div>
   </div>
 
@@ -895,12 +887,12 @@ body {
           <div class="promise-title">Built by a full-time hardware engineer</div>
           <div style="font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);">The same meticulous process, from the same mind</div>
         </div>
-        <div class="promise-desc" style="margin-top:4px;">Day job: planning and configuring bleeding-edge server hardware - NVIDIA, AMD, Broadcom, Mellanox, Intel - for enterprise clients. Your workstation gets the same level of thinking.</div>
+        <div class="promise-desc" style="margin-top:4px;">Day job: planning and configuring bleeding-edge server hardware (NVIDIA, AMD, Broadcom, Mellanox, Intel) for enterprise clients. Your workstation gets the same level of thinking.</div>
       </div>
       <div class="promise-card">
         <div class="promise-icon">⚡</div>
         <div class="promise-title">Workload-first spec</div>
-        <div class="promise-desc">Every build is designed around what you actually run - not a category or a preset config.</div>
+        <div class="promise-desc">Every build is designed around what you actually run. Not a category. Not a preset.</div>
       </div>
       <div class="promise-card">
         <div class="promise-icon">🌡️</div>
@@ -910,12 +902,12 @@ body {
       <div class="promise-card">
         <div class="promise-icon">📞</div>
         <div class="promise-title">Direct engineer access</div>
-        <div class="promise-desc">Text the person who built it. No call centers, no ticket queues - post-delivery support included.</div>
+        <div class="promise-desc">Text the person who built it. No call centers, no ticket queues. Post-delivery support included.</div>
       </div>
       <div class="promise-card">
         <div class="promise-icon">🔄</div>
         <div class="promise-title">No proprietary parts</div>
-        <div class="promise-desc">Every component is standard, reusable, and independently replaceable. No ecosystem lock-in, no forced upgrades.</div>
+        <div class="promise-desc">Every component is standard, reusable, and independently replaceable. No ecosystem lock-in. No forced upgrades.</div>
       </div>
     </div>
   </div>
