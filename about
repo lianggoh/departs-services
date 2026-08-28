@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeParts Systems — About & FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #080a0f;
+  --dark: #0d1018;
+  --dark-card: #181b26;
+  --dark-border: #22273a;
+  --gray-card: #eef0f5;
+  --gray-hover: #e6e9f2;
+  --gray-border: #e0e3ed;
+  --ink: #0a0c14;
+  --ink-mid: #3d4258;
+  --ink-muted: #6b7080;
+  --blue: #2a6aff;
+  --white: #ffffff;
+
+  --xs: 10px; --sm: 12px; --base: 14px;
+  --md: 16px; --lg: 18px; --xl: 22px; --2xl: 32px; --3xl: 48px;
+}
+@media(min-width:1440px){:root{--xs:11px;--sm:13px;--base:15px;--md:17px;--lg:20px;--xl:26px;--2xl:38px;--3xl:56px;}}
+@media(min-width:2560px){:root{--xs:14px;--sm:17px;--base:20px;--md:23px;--lg:27px;--xl:34px;--2xl:52px;--3xl:76px;}}
+
+
+/* ── 1440p ── */
+@media(min-width: 1440px) {
+  :root {
+    --xs: 11px; --sm: 13px; --base: 15px;
+    --md: 17px; --lg: 20px; --xl: 26px; --2xl: 38px; --3xl: 56px;
+  }
+}
+/* ── 4K ── */
+@media(min-width: 2560px) {
+  :root {
+    --xs: 14px; --sm: 17px; --base: 20px;
+    --md: 23px; --lg: 27px; --xl: 34px; --2xl: 52px; --3xl: 76px;
+  }
+  .wrap { max-width: 1800px; }
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════
+   SITE NAV
+══════════════════════════════ */
+.site-nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.site-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.site-nav-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.site-nav-logo span { color: var(--blue); }
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.site-nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.site-nav-link:hover { color: var(--ink); }
+.site-nav-link.active { color: var(--ink); }
+.site-nav-cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--blue);
+  padding: 9px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.site-nav-cta:hover { background: #1a55ee; }
+.site-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.site-nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.site-nav.open .site-nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.site-nav.open .site-nav-toggle span:nth-child(2) { opacity: 0; }
+.site-nav.open .site-nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media(max-width: 900px) {
+  .site-nav-inner { padding: 14px 24px; }
+  .site-nav-toggle { display: flex; }
+  .site-nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 24px 16px;
+    display: none;
+  }
+  .site-nav.open .site-nav-links { display: flex; }
+  .site-nav-link { padding: 12px 0; border-bottom: 1px solid var(--gray-border); }
+  .site-nav-cta { margin-top: 12px; text-align: center; }
+}
+
+.wrap { max-width: 1280px; margin: 0 auto; padding: 64px 64px 120px; }
+
+.divider { border: none; border-top: 1px solid var(--gray-border); margin: 40px 0; }
+
+/* ── Section label ── */
+.sl {
+  font-size: var(--xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 14px;
+}
+
+/* ── Page opening headline ── */
+.page-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(34px, 4vw, var(--3xl));
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 40px;
+}
+
+/* ── Highlighted stat/number ── */
+.hl { color: var(--blue); font-weight: 700; }
+
+/* ── Profile ── */
+.profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 32px;
+  background: var(--gray-card);
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.profile-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--gray-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile-img-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--ink);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.profile-body { display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+
+.profile-eyebrow {
+  font-size: var(--xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.profile-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--2xl);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.profile-bio {
+  font-size: var(--base);
+  color: var(--ink-mid);
+  line-height: 1.75;
+}
+
+.profile-bio strong { color: var(--ink); font-weight: 700; }
+
+/* ── FAQ ── */
+.faq-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--2xl);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.faq-list { display: flex; flex-direction: column; }
+
+.faq-item {
+  border-bottom: 1px solid var(--gray-border);
+}
+.faq-item:first-child { border-top: 1px solid var(--gray-border); }
+
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--md);
+  font-weight: 700;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.faq-q:hover { color: var(--blue); }
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  color: var(--ink-muted);
+  transition: transform 0.25s, color 0.15s;
+}
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+.faq-icon::before { width: 12px; height: 2px; top: 9px; left: 4px; }
+.faq-icon::after  { width: 2px; height: 12px; top: 4px; left: 9px; }
+
+.faq-item.open .faq-icon::after { transform: rotate(90deg); opacity: 0; }
+.faq-item.open .faq-q { color: var(--blue); }
+.faq-item.open .faq-icon { color: var(--blue); }
+
+.faq-a {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.faq-a-inner {
+  padding: 0 0 20px;
+  font-size: var(--base);
+  color: var(--ink-mid);
+  line-height: 1.75;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item.open .faq-a { max-height: 600px; }
+
+/* ── Footer note ── */
+.footer-note {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-border);
+  font-size: var(--sm);
+  color: var(--ink-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-note a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer-note a:hover { text-decoration: underline; }
+
+/* ── Section titles ── */
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--2xl);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.section-intro {
+  font-size: var(--base);
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+/* ── Warranty table ── */
+.warranty-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: var(--base);
+}
+.warranty-table th:first-child,
+.warranty-table td:first-child { width: 18%; }
+.warranty-table th:nth-child(2),
+.warranty-table td:nth-child(2) { width: 40%; }
+.warranty-table th:nth-child(3),
+.warranty-table td:nth-child(3) { width: 42%; }
+.warranty-table th,
+.warranty-table td {
+  text-align: left;
+  padding: 12px 16px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--gray-border);
+}
+.warranty-table tr:last-child td { border-bottom: none; }
+.warranty-table thead tr { background: var(--ink); }
+.warranty-table th {
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: var(--xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+}
+.warranty-table tbody tr { background: var(--gray-card); }
+.warranty-table tbody tr:nth-child(even) { background: #e8ebf2; }
+.warranty-table td:first-child { font-weight: 600; color: var(--ink); }
+.warranty-table td { color: var(--ink-mid); }
+
+/* ── Note boxes ── */
+.note-box {
+  padding: 14px 18px;
+  background: var(--gray-card);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 10px 10px 0;
+  font-size: var(--base);
+  color: var(--ink-mid);
+  margin-bottom: 10px;
+  line-height: 1.65;
+}
+.note-box:last-of-type { margin-bottom: 0; }
+.note-box strong { color: var(--ink); font-weight: 700; }
+.note-cta {
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* ── Cancel list ── */
+.cancel-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cancel-list li {
+  background: var(--gray-card);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: var(--base);
+  color: var(--ink-mid);
+  line-height: 1.65;
+  transition: background 0.15s;
+}
+.cancel-list li:hover { background: var(--gray-hover); }
+.tag {
+  flex-shrink: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  padding: 4px 10px;
+  border-radius: 99px;
+  height: fit-content;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+.tag-green { background: #166534; }
+.tag-amber { background: #b45309; }
+.tag-red   { background: #991b1b; }
+
+/* ── Responsive ── */
+@media(max-width: 900px) {
+  .wrap { padding: 48px 24px 120px; }
+}
+@media(max-width: 600px) {
+  .wrap { padding: 40px 16px 240px; }
+  .profile { flex-direction: column; align-items: center; text-align: center; padding: 24px 20px; gap: 16px; }
+  .profile-body { align-items: center; }
+  .footer-note { flex-direction: column; align-items: flex-start; }
+  .cancel-list li { flex-direction: column; gap: 8px; }
+  .tag { margin-bottom: 2px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="site-nav-logo">dps<span>.</span></a>
+    <nav class="site-nav-links" id="siteNavLinks">
+      <a href="index.html" class="site-nav-link">Home</a>
+      <a href="services.html" class="site-nav-link">Services</a>
+      <a href="portfolio.html" class="site-nav-link">Portfolio</a>
+      <a href="about.html" class="site-nav-link active">About &amp; FAQ</a>
+      <a href="https://tally.so/r/xXy0lG" class="site-nav-cta" target="_blank">Request a Build</a>
+    </nav>
+    <button class="site-nav-toggle" id="siteNavToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- PAGE OPENER -->
+  <div class="sl">Get to know us</div>
+  <h1 class="page-title">About &amp; FAQ</h1>
+
+  <!-- PROFILE -->
+  <div class="profile">
+    <!--
+      TO ADD YOUR PHOTO:
+      Replace the div below with:
+      <img class="profile-img" src="YOUR_IMAGE_URL" alt="Liang">
+    -->
+    <div class="profile-img-placeholder">L</div>
+
+    <div class="profile-body">
+      <div class="profile-eyebrow">Founder &amp; builder</div>
+      <div class="profile-name">Liang</div>
+      <p class="profile-bio">
+        Started DeParts in 2020 after my first build (Ryzen 3700x + 1070Ti) showed me how much performance prebuilts leave on the table. <span class="hl">100+</span> custom workstations later, I'm still a one-person shop. I'm the one building yours, and I'm keeping you posted through the whole process.
+      </p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sl">Common questions</div>
+  <h2 class="faq-title">FAQs</h2>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Do you require a deposit?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">
+          <p>Yes, based on their estimated value. Pay the remainder on pickup, before shipping, or in increments, whatever's easiest. PayPal financing (Pay in 4 or Pay Monthly) is available for select builds, fees/interest may apply.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        What's the estimated wait time & shipping?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">
+          <p><span class="hl">2-4 weeks</span> from deposit to completion. Shipping is always <span class="hl">under $60</span> within the USA (CA to OR: 1-3 days, CA to VA: 6-7 days, CA to UK: 8-15 days).</p>
+          <p>This allows all the parts to ship in and for me to put together the build, then test the integrity thoroughly. I may have several parts in stock already, but I often wait to order cases and CPU coolers since they are usually custom picked.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Where do your parts come from?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">
+          <p>Bulk vendors who supply tech and computer companies directly. I invest tens of thousands to keep a wide, flexible parts selection on hand. Everything is open-box or new, stress-tested twice — once by the supplier, once by me in the finished system. Years of builds have provided me knowledge of which brands and models to steer clients away from.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Can I choose specific brands?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">
+          <p>Yes. I create some of the most personalized builds in the current PC market. I build with practically anything you can find on Amazon as long as the price difference is covered. I often have popular parts on hand already, so ask if you have a preference and I'll see what fits.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Can I pick up my build?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">
+          <p>Yes, local pickup is available in Alameda, CA. Great way to save on shipping.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        How do I know you're reputable?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">
+          <p><span class="hl">80+</span> sales on Offerup, <span class="hl">50+</span> on Facebook Marketplace, <span class="hl">100+</span> on Reddit, <span class="hl">120+</span> Google reviews, and more. Prefer to talk first? Let's get in touch via the contact form and we can call directly, or swing by to drop off your deposit in person.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WARRANTY -->
+  <div class="sl">Coverage details</div>
+  <h2 class="section-title">Warranty</h2>
+  <p class="section-intro">Every system is stress-tested (CPU and GPU load) before it ships. This catches almost everything, but intermittent RAM or board faults can occasionally slip past initial testing, which is exactly what the <span class="hl">30-day</span> window covers.</p>
+
+  <table class="warranty-table">
+    <thead>
+      <tr>
+        <th>Coverage</th>
+        <th>First 30 days</th>
+        <th>After 30 days (lifetime)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Labor</td>
+        <td>Free. All repairs and replacements covered at no charge</td>
+        <td>Free permanently if the issue stems from my workmanship</td>
+      </tr>
+      <tr>
+        <td>Parts</td>
+        <td>Free. Replaced at no charge for defects or assembly faults</td>
+        <td>Billed at cost, or covered under manufacturer warranty if applicable. I manage the claim on your behalf</td>
+      </tr>
+      <tr>
+        <td>Other</td>
+        <td colspan="2">Not covered: wear, aging, and unrelated failures.</td>
+      </tr>
+      <tr>
+        <td>Shipping</td>
+        <td colspan="2">Shipping damage or missing parts must be reported within 24 hours of delivery.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note-box">
+    <strong>Not covered:</strong> software and firmware, RGB and lighting, normal wear, or anything after physical modification, overclocking beyond validated settings, unauthorized part removal, or software changes that cause instability.
+    <div class="note-cta">Not sure if a change affects your warranty? Text me first.</div>
+  </div>
+  <div class="note-box">
+    <strong>Beyond the warranty window:</strong> for workstation builds I'll still make reasonable efforts to source replacements or work with manufacturers on your behalf. No promises, but I don't disappear after 30 days.
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CANCELLATION -->
+  <div class="sl">Policy</div>
+  <h2 class="section-title">Cancellation & Returns</h2>
+  <p class="section-intro">All sales are final once your system is delivered. Custom builds can't go back into inventory as new, so returns aren't accepted after handoff. DeParts isn't responsible for data loss or corruption. Back up anything important before delivery.</p>
+
+  <ul class="cancel-list">
+    <li>
+      <span class="tag tag-green">Before order</span>
+      Full deposit refund.
+    </li>
+    <li>
+      <span class="tag tag-amber">After parts ordered</span>
+      50% deposit is non-refundable. If components are still sealed and assembly hasn't started, a partial refund may be issued minus a 15–20% restocking and price-adjustment fee.
+    </li>
+    <li>
+      <span class="tag tag-red">After assembly starts</span>
+      Deposit is fully non-refundable.
+    </li>
+  </ul>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    <span>© 2020 – 2026 DeParts Systems. All rights reserved.</span>
+    <a href="https://www.departspcs.com/terms-privacy" target="_blank">Full Terms of Service & Privacy Policy →</a>
+  </div>
+
+</div>
+
+<script>
+  var navToggle = document.getElementById('siteNavToggle');
+  var siteNavEl = document.querySelector('.site-nav');
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      var isOpen = siteNavEl.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+</body>
+</html>
